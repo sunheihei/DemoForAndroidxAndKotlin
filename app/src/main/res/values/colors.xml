@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+
+    <color name="red500">#F44336</color>
+    <color name="blue500">#2196f3</color>
+    <color name="orange500">#FF9800</color>
+    <color name="white">#FFFFFF</color>
+
+
+    <!--黑色-各种等级透明度名称后缀数字为透明度百分比-->
+    <color name="black">#ff000000</color>
+    <color name="black_alpha10">#1a000000</color>
+    <color name="black_alpha15">#26000000</color>
+    <color name="black_alpha20">#33000000</color>
+    <color name="black_alpha30">#4d000000</color>
+    <color name="black_alpha32">#52000000</color>
+    <color name="black_alpha40">#66000000</color>
+    <color name="black_alpha5">#0d000000</color>
+    <color name="black_alpha50">#80000000</color>
+    <color name="black_alpha54">#89000000</color>
+    <color name="black_alpha60">#99000000</color>
+    <color name="black_alpha80">#cc000000</color>
+
+
+    <!--蓝色-->
+    <color name="blue_e1">#e1f5fe</color>
+    <color name="blue_b3">#b3e5fc</color>
+    <color name="blue_81">#81d5fa</color>
+    <color name="blue_80">#80d8fe</color>
+    <color name="blue_4f">#4fc2f8</color>
+    <color name="blue_3f">#3fc4ff</color>
+    <color name="blue_28">#28b6f6</color>
+    <color name="blue_00">#00affe</color>
+    <color name="blue_03">#039be6</color>
+    <color name="blue_01">#018fe9</color>
+    <color name="blue_02">#0288d1</color>
+    <color name="blue_027">#0277bd</color>
+    <color name="blue_025">#02569c</color>
+
+    <!--点缀色-->
+    <color name="hip_hop_fa">#fae2e2</color>
+    <color name="hip_hop_ea">#ea3e56</color>
+    <color name="jazz_ed">#edc9fa</color>
+    <color name="jazz_b2">#b200f2</color>
+    <color name="pop_ff">#ffeda6</color>
+    <color name="pop_f0">#f08800</color>
+    <color name="electro_b3">#b3fcbf</color>
+    <color name="electro_00">#00991a</color>
+    <color name="more_b3">#b3e5fc</color>
+    <color name="more_01">#018fe9</color>
+    <color name="rank_region">#FFD600</color>
+    <color name="singer_rank">#FC8F00</color>
+
+</resources>
