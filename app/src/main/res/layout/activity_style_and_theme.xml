@@ -4,14 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/DarkTheme"
     tools:context=".StyleAndTheme.StyleAndThemeActivity">
 
 
     <TextView
         android:id="@+id/tv1"
+        style="@style/TextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle" />
+        android:fontFamily="@font/shrikhand"
+        android:text="@string/app_name" />
+
+
+    <com.google.android.material.button.MaterialButton
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BUttonTest"
+        android:textColor="@color/jazz_b2" />
 
 </LinearLayout>
