@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Dialog.DialogDemoActivity">
+
+    <Button
+        android:id="@+id/normal_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NormalDialog" />
+
+
+    <Button
+        android:id="@+id/single_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SinggleDialog" />
+
+    <Button
+        android:id="@+id/multiply_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MultipleDialog" />
+
+
+    <Button
+        android:id="@+id/fragment_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FragmentDialog" />
+
+
+
+
+</LinearLayout>

@@ -3,6 +3,7 @@ package com.sunexample.demoforandroidxandkotlin
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sunexample.demoforandroidxandkotlin.Dialog.DialogDemoActivity
 import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -14,6 +15,9 @@ class MainActivity : AppCompatActivity() {
         styleAndTheme.setOnClickListener {
             startActivity(Intent(this, StyleAndThemeActivity::class.java))
         }
-
+        dialogdemo.setOnClickListener {
+            startActivity(Intent(this, DialogDemoActivity::class.java))
+        }
+        
     }
 }
