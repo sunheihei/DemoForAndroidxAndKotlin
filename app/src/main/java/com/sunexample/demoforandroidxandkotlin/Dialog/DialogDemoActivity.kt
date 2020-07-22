@@ -29,6 +29,9 @@ class DialogDemoActivity : AppCompatActivity() {
         fragment_dialog.setOnClickListener {
             FragmentDialog(this)
         }
+        bottom_fragment_dialog.setOnClickListener {
+            BottomDialogFraDemo.Instance().show(supportFragmentManager, "dialogdemo")
+        }
 
     }
 
@@ -100,7 +103,7 @@ class DialogDemoActivity : AppCompatActivity() {
      * FragmentDialog
      */
     fun FragmentDialog(context: Context) {
-        DialogFraDemo.Instance().show(supportFragmentManager,"dialogdemo")
+        DialogFraDemo.Instance().show(supportFragmentManager, "dialogdemo")
     }
 
 }
