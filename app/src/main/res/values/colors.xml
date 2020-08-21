@@ -53,5 +53,8 @@
     <color name="more_01">#018fe9</color>
     <color name="rank_region">#FFD600</color>
     <color name="singer_rank">#FC8F00</color>
-
+    <color name="clockthirdcocolor">#6d34fe</color>
+    <color name="timebgcolor">#252547</color>
+    <color name="clocksecondcolor">#28b9ff</color>
+    <color name="clockbgcocolor">#181856</color>
 </resources>

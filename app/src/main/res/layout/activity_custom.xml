@@ -5,25 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".CustomView.CustomViewActivity">
+
 
     <Button
-        android:id="@+id/styleAndTheme"
+        android:id="@+id/cusdemo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="styleAndTheme" />
+        android:text="test" />
     <Button
-        android:id="@+id/dialogdemo"
+        android:id="@+id/srollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DialogDemo" />
-
-    <Button
-        android:id="@+id/customview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="customViewDemo" />
-
+        android:text="srollview" />
 
 
 </LinearLayout>
