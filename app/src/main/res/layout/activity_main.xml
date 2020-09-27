@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="styleAndTheme" />
+
     <Button
         android:id="@+id/dialogdemo"
         android:layout_width="match_parent"
@@ -23,6 +24,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="customViewDemo" />
+    <Button
+        android:id="@+id/writeandread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="writeandread" />
 
 
 
