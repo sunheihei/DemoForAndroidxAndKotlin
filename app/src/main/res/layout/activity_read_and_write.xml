@@ -43,4 +43,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="read_ex_file" />
+
+    <Button
+        android:id="@+id/btn_create_ex_new_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="create_new_ex_file" />
+
+    <Button
+        android:id="@+id/btn_delete_ex_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="delete_new_ex_file" />
+
+
+
 </LinearLayout>
