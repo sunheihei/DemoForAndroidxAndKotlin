@@ -1,6 +1,7 @@
 package com.sunexample.demoforandroidxandkotlin.ReadAndWrite
 
 import android.Manifest
+import android.app.Activity
 import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.Context
@@ -9,7 +10,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.provider.ContactsContract
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.util.Log
@@ -19,8 +19,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.permissionx.guolindev.PermissionX
 import com.sunexample.demoforandroidxandkotlin.R
 import kotlinx.android.synthetic.main.activity_read_and_write.*
-import java.io.*
-import java.net.URI
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 
 
 class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
@@ -72,6 +73,9 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
         btn_read_ex_file.setOnClickListener(this)
         btn_create_ex_new_file.setOnClickListener(this)
         btn_delete_ex_file.setOnClickListener(this)
+        btn_create_ex_doc.setOnClickListener(this)
+        btn_open_ex_doc.setOnClickListener(this)
+        btn_open_doc_directory.setOnClickListener(this)
 
     }
 
@@ -98,12 +102,22 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
                 WriteExtraFile()
             }
             R.id.btn_read_ex_file -> {
+                ReadExtraFile()
             }
             R.id.btn_create_ex_new_file -> {
                 WriteToExtraDownLoad()
             }
             R.id.btn_delete_ex_file -> {
                 deleteExFile()
+            }
+            R.id.btn_create_ex_doc -> {
+                createFile(null);
+            }
+            R.id.btn_open_ex_doc -> {
+                openFile(null)
+            }
+            R.id.btn_open_doc_directory -> {
+                openDirectory(null)
             }
         }
     }
@@ -167,7 +181,14 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
 
     //读取外部存储
     private fun ReadExtraFile() {
-
+        var Content: String = ""
+        contentResolver.openInputStream(Uri!!).use { stream ->
+            stream!!.bufferedReader().use {
+                Content = it.readText()
+            }
+            // Perform operations on "stream".
+        }
+        Log.d(TAG, " ReadFile  Succecc! Content: $Content")
     }
 
 
@@ -194,6 +215,64 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
     private fun deleteExFile() {
         contentResolver.delete(Uri!!, null, null)
         Log.d(TAG, " Delete File  Succecc")
+    }
+
+    private val CREATE_FILE = 1
+    private fun createFile(pickerInitialUri: Uri?) {
+        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
+        intent.addCategory(Intent.CATEGORY_OPENABLE)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TITLE, "invoice.txt")
+
+        // Optionally, specify a URI for the directory that should be opened in
+        // the system file picker when your app creates the document.
+//        intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri)
+        startActivityForResult(intent, CREATE_FILE)
+    }
+
+    val PICK_PDF_FILE = 2
+    private fun openFile(pickerInitialUri: Uri?) {
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "text/plain"
+
+            // Optionally, specify a URI for the file that should appear in the
+            // system file picker when it loads.
+//            putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri)
+        }
+        startActivityForResult(intent, PICK_PDF_FILE)
+    }
+
+    val REQUEST_CODE = 3
+    fun openDirectory(pickerInitialUri: Uri?) {
+        // Choose a directory using the system's file picker.
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
+            // Provide read access to files and sub-directories in the user-selected
+            // directory.
+            flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+
+            // Optionally, specify a URI for the directory that should be opened in
+            // the system file picker when it loads.
+//            putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri)
+        }
+
+        startActivityForResult(intent, REQUEST_CODE)
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_PDF_FILE && resultCode == Activity.RESULT_OK
+        ) {
+            data?.data?.also { uri ->
+                Log.d(TAG, " PICK_PDF_FILE uri:${uri}")
+            }
+        } else if (requestCode == CREATE_FILE && resultCode == Activity.RESULT_OK) {
+            data?.data?.also { uri ->
+                saveFile(this, uri)
+                Log.d(TAG, "CREATE_FILE uri:${uri}")
+            }
+        }
     }
 
 

@@ -1,61 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
     tools:context=".ReadAndWrite.ReadAndWriteActivity">
 
-    <Button
-        android:id="@+id/btn_write_cache_file"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="write_cache_file" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_read_cache_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="read_cache_file" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="内部缓存：" />
 
-    <Button
-        android:id="@+id/btn_write_out_cache_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="write_out_cache_file" />
+        <Button
+            android:id="@+id/btn_write_cache_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="write_cache_file" />
 
-    <Button
-        android:id="@+id/btn_read_out_cache_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="read_out_cache_file" />
+        <Button
+            android:id="@+id/btn_read_cache_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="read_cache_file" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="外部缓存：" />
+
+        <Button
+            android:id="@+id/btn_write_out_cache_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="write_out_cache_file" />
+
+        <Button
+            android:id="@+id/btn_read_out_cache_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="read_out_cache_file" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="公共存储区域缓存(以下两个空方法)，主要分为媒体和文档：" />
+
+        <Button
+            android:id="@+id/btn_write_ex_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="write_ex_file" />
+
+        <Button
+            android:id="@+id/btn_read_ex_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="read_ex_file" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="以下针对媒体文件：" />
+
+        <Button
+            android:id="@+id/btn_create_ex_new_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="create_new_ex_file" />
+
+        <Button
+            android:id="@+id/btn_delete_ex_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="delete_new_ex_file" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="以下针对文档和其他文件：" />
+
+        <Button
+            android:id="@+id/btn_create_ex_doc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="create_ex_doc" />
+
+        <Button
+            android:id="@+id/btn_open_ex_doc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="create_ex_doc" />
 
 
-    <Button
-        android:id="@+id/btn_write_ex_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="write_ex_file" />
-
-    <Button
-        android:id="@+id/btn_read_ex_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="read_ex_file" />
-
-    <Button
-        android:id="@+id/btn_create_ex_new_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="create_new_ex_file" />
-
-    <Button
-        android:id="@+id/btn_delete_ex_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="delete_new_ex_file" />
+        <Button
+            android:id="@+id/btn_open_doc_directory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="open_doc_directory" />
 
 
+    </LinearLayout>
 
-</LinearLayout>
+
+</ScrollView>
