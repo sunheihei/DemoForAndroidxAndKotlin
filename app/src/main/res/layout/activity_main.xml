@@ -24,12 +24,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="customViewDemo" />
+
     <Button
         android:id="@+id/writeandread"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="writeandread" />
 
+    <Button
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fragment" />
 
 
 </LinearLayout>
