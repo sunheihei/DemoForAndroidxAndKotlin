@@ -29,13 +29,19 @@
         android:id="@+id/writeandread"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="writeandread" />
+    android:text="writeandread" />
 
     <Button
         android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="fragment" />
+
+    <Button
+        android:id="@+id/videotest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="videotest" />
 
 
 </LinearLayout>
