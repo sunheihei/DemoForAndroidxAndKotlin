@@ -57,12 +57,12 @@ public class SunCircleCounter extends View {
 
 
         mTextPaint = new Paint();
-        mTextPaint.setTextSize(160);
+        mTextPaint.setTextSize(200);
         mTextPaint.setAntiAlias(true);
         mTextPaint.setTextAlign(Paint.Align.CENTER);
-        mTextPaint.setStrokeWidth(8);
-//        Typeface customTypeface = ResourcesCompat.getFont(mContext, R.font.anton);
-//        mTextPaint.setTypeface(customTypeface);
+        mTextPaint.setStrokeWidth(1);
+        Typeface customTypeface = ResourcesCompat.getFont(mContext, R.font.oswald_bold);
+        mTextPaint.setTypeface(customTypeface);
         mTextPaint.setColor(getResources().getColor(R.color.rp_main_blue));
 
 
@@ -84,9 +84,10 @@ public class SunCircleCounter extends View {
         oval = new RectF(StrokeWidth, StrokeWidth, mWidth - StrokeWidth, mHeight - StrokeWidth);
 
         //计算基线
-        Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
-        float distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
-        baseline = oval.centerY() + distance;
+//        Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
+//        float distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
+        baseline = oval.centerY() + (Math.abs(mTextPaint.ascent())-mTextPaint.descent())/2;
+
 
 
     }
@@ -95,10 +96,13 @@ public class SunCircleCounter extends View {
     protected void onDraw(Canvas canvas) {
         mRadius = mWidth / 2 - StrokeWidth;
         canvas.drawArc(oval, -90, mArc, false, mPaint);
-        canvas.drawText(String.valueOf(duration - Temptime), oval.centerX(), oval.centerY(), mTextPaint);
+        canvas.drawText(String.valueOf(duration - Temptime), oval.centerX(), baseline, mTextPaint);
+
+//        canvas.drawRect(oval, mPaint);
+
 
         if (mAddedtime != 0) {
-            canvas.drawText("+" + mAddedtime + "s", oval.centerX(), (float) (mHeight * 0.8), mAddTextPaint);
+            canvas.drawText("+" + mAddedtime + "s", oval.centerX(), (float) (mHeight * 0.9), mAddTextPaint);
         }
 
     }
@@ -178,7 +182,7 @@ public class SunCircleCounter extends View {
 
 
     void addTime() {
-        if (mAddedtime != 0) {
+        if (mAddedtime != 0 && valueAnimator != null) {
             mCountStatus.addtime();
             duration = duration - Temptime + mAddedtime;
             valueAnimator.cancel();
