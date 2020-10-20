@@ -4,12 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".VideoTest.VideoTestActivity">
 
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/playerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <!--        <com.google.android.exoplayer2.ui.PlayerView-->
+    <!--            android:id="@+id/playerview"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent" />-->
 
+    <com.sunexample.demoforandroidxandkotlin.VideoTest.SunBottomCounterView
+        android:id="@+id/countview"
+        android:layout_width="match_parent"
+        android:layout_height="85.0dip" />
+
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="startandpause" />
+
+
+    <com.sunexample.demoforandroidxandkotlin.VideoTest.SunCircleCounter
+        android:id="@+id/circircountview"
+        android:layout_width="160dp"
+        android:layout_height="160dp" />
+
+
+    <Button
+        android:id="@+id/btn_test2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="startandpause" />
+
+    <Button
+        android:id="@+id/btn_add_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add 25 Seconds" />
 
 </LinearLayout>

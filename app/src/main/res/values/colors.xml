@@ -39,7 +39,7 @@
     <color name="blue_02">#0288d1</color>
     <color name="blue_027">#0277bd</color>
     <color name="blue_025">#02569c</color>
-
+    <color name="rp_main_blue">#ff0086ff</color>
     <!--点缀色-->
     <color name="hip_hop_fa">#fae2e2</color>
     <color name="hip_hop_ea">#ea3e56</color>
