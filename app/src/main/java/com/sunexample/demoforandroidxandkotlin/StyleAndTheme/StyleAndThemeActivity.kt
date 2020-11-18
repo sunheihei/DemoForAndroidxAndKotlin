@@ -1,7 +1,8 @@
 package com.sunexample.demoforandroidxandkotlin.StyleAndTheme
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+
 import com.sunexample.demoforandroidxandkotlin.R
 
 class StyleAndThemeActivity : AppCompatActivity() {

@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".VideoTest.VideoTestActivity">
+    tools:context=".FitnessTest.VideoTestActivity">
 
-    <!--        <com.google.android.exoplayer2.ui.PlayerView-->
-    <!--            android:id="@+id/playerview"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent" />-->
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/playerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="64dp"
+        android:visibility="gone" />
 
-    <com.sunexample.demoforandroidxandkotlin.VideoTest.SunBottomCounterView
+    <com.sunexample.demoforandroidxandkotlin.FitnessTest.SunBottomCounterView
         android:id="@+id/countview"
         android:layout_width="match_parent"
         android:layout_height="85.0dip" />
@@ -26,7 +28,7 @@
         android:text="startandpause" />
 
 
-    <com.sunexample.demoforandroidxandkotlin.VideoTest.SunCircleCounter
+    <com.sunexample.demoforandroidxandkotlin.FitnessTest.SunCircleCounter
         android:id="@+id/circircountview"
         android:layout_width="160dp"
         android:layout_height="160dp" />
@@ -43,5 +45,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="add 25 Seconds" />
+
+
+    <Button
+        android:id="@+id/skip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="skip" />
+
+
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="40dp"
+        android:layout_height="40dp"></TextView>
+
+
+    <Button
+        android:text="save_TTS"
+        android:id="@+id/save_wav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

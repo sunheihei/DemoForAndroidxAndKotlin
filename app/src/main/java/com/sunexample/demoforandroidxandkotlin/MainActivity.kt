@@ -8,7 +8,7 @@ import com.sunexample.demoforandroidxandkotlin.Dialog.DialogDemoActivity
 import com.sunexample.demoforandroidxandkotlin.Fragment.FragmentActivity
 import com.sunexample.demoforandroidxandkotlin.ReadAndWrite.ReadAndWriteActivity
 import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
-import com.sunexample.demoforandroidxandkotlin.VideoTest.VideoTestActivity
+import com.sunexample.demoforandroidxandkotlin.FitnessTest.VideoTestActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

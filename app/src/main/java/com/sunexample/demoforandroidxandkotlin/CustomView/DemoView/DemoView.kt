@@ -5,14 +5,15 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import com.sunexample.demoforandroidxandkotlin.CustomView.px
 
 
 class DemoView : View {
 
     val TAG = "DemoView"
 
-    var mHeight: Int = 0
-    var mWidth: Int = 0
+    var mHeight: Float = 0f
+    var mWidth: Float = 0f
     lateinit var mPaint: Paint
     lateinit var mTextPaint: Paint
     lateinit var mPath: Path
@@ -54,8 +55,8 @@ class DemoView : View {
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        mHeight = h
-        mWidth = w
+        mHeight = h.toFloat()
+        mWidth = w.toFloat()
         Log.d(TAG, "mHeight:$mHeight")
         Log.d(TAG, "mWidth:$mWidth")
     }
@@ -65,18 +66,8 @@ class DemoView : View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     }
 
-    override fun onDraw(canvas: Canvas?) {
-        mPath.moveTo(150f, 1100f)
-        mPath.lineTo(300f, 900f)
-        mPath.lineTo(450f, 1100f)
-        mPath.lineTo(600f, 900f)
-        mPath.lineTo(750f, 1100f)
-        mPath.lineTo(900f, 900f)
-        canvas?.let {
-            it.drawPath(mPath, mPaint)
-            canvas.drawTextOnPath("Hello HeCoder", mPath, 0f, 0f, mTextPaint);
-            it.drawText(text, 200f, 100f, mTextPaint)
-        }
+    override fun onDraw(canvas: Canvas) {
+        canvas.drawCircle(mWidth / 2, mHeight / 2, 100f.px, mPaint)
 
         super.onDraw(canvas)
     }

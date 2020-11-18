@@ -1,4 +1,4 @@
-package com.sunexample.demoforandroidxandkotlin.VideoTest;
+package com.sunexample.demoforandroidxandkotlin.FitnessTest;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -6,7 +6,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
@@ -14,9 +13,6 @@ import androidx.annotation.Nullable;
 
 
 import com.sunexample.demoforandroidxandkotlin.R;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class SunBottomCounterView extends View {
 

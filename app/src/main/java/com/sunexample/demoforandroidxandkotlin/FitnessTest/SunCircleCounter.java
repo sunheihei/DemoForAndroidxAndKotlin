@@ -1,4 +1,4 @@
-package com.sunexample.demoforandroidxandkotlin.VideoTest;
+package com.sunexample.demoforandroidxandkotlin.FitnessTest;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Typeface;
-import android.graphics.fonts.Font;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -86,8 +85,7 @@ public class SunCircleCounter extends View {
         //计算基线
 //        Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
 //        float distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
-        baseline = oval.centerY() + (Math.abs(mTextPaint.ascent())-mTextPaint.descent())/2;
-
+        baseline = oval.centerY() + (Math.abs(mTextPaint.ascent()) - mTextPaint.descent()) / 2;
 
 
     }
@@ -143,7 +141,8 @@ public class SunCircleCounter extends View {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                mCountStatus.finish();
+                if (duration - Temptime == 0)
+                    mCountStatus.finish();
             }
 
             @Override
@@ -187,6 +186,7 @@ public class SunCircleCounter extends View {
             duration = duration - Temptime + mAddedtime;
             valueAnimator.cancel();
             start(duration);
+            this.setEnabled(false);
             //延长一次后自动为0，不允许第二次延长
             mAddedtime = 0;
         }

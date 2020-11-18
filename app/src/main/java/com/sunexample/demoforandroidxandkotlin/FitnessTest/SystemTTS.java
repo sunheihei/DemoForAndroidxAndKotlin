@@ -1,9 +1,12 @@
-package com.sunexample.demoforandroidxandkotlin.VideoTest;
+package com.sunexample.demoforandroidxandkotlin.FitnessTest;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
+
+
+import com.sunexample.demoforandroidxandkotlin.AppContext;
 
 import java.util.Locale;
 
@@ -11,33 +14,37 @@ import java.util.Locale;
  * 系统播报类,部分手机不支持中文播报
  */
 @SuppressLint("NewApi")
-public class SystemTTS extends UtteranceProgressListener implements TTS, TextToSpeech.OnUtteranceCompletedListener {
+public class SystemTTS extends UtteranceProgressListener implements TextToSpeech.OnUtteranceCompletedListener {
     private Context mContext;
     private static SystemTTS singleton;
     private TextToSpeech textToSpeech; // 系统语音播报类
     private boolean isSuccess = true;
 
-    public static SystemTTS getInstance(Context context) {
+    public synchronized static SystemTTS getInstance() {
         if (singleton == null) {
             synchronized (SystemTTS.class) {
                 if (singleton == null) {
-                    singleton = new SystemTTS(context);
+                    singleton = new SystemTTS();
                 }
             }
         }
         return singleton;
     }
 
-    private SystemTTS(Context context) {
-        this.mContext = context.getApplicationContext();
+    public TextToSpeech getTextToSpeech() {
+        return textToSpeech;
+    }
+
+    private SystemTTS() {
+        this.mContext = AppContext.getAppContext();
         textToSpeech = new TextToSpeech(mContext, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int i) {
                 //系统语音初始化成功
                 if (i == TextToSpeech.SUCCESS) {
                     int result = textToSpeech.setLanguage(Locale.ENGLISH);
-                    textToSpeech.setPitch(1.0f);// 设置音调，值越大声音越尖（女生），值越小则变成男声,1.0是常规
-                    textToSpeech.setSpeechRate(0.4f);
+                    textToSpeech.setPitch(1.2f);// 设置音调，值越大声音越尖（女生），值越小则变成男声,1.0是常规
+                    textToSpeech.setSpeechRate(0.8f);
                     textToSpeech.setOnUtteranceProgressListener(SystemTTS.this);
                     textToSpeech.setOnUtteranceCompletedListener(SystemTTS.this);
                     if (result == TextToSpeech.LANG_MISSING_DATA
@@ -63,7 +70,7 @@ public class SystemTTS extends UtteranceProgressListener implements TTS, TextToS
 
     public void stopSpeak() {
         if (textToSpeech != null) {
-            textToSpeech.stop();
+            textToSpeech.shutdown();
         }
     }
 
