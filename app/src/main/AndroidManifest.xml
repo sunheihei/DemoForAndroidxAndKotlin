@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Rxjava.RxjavaActivity"></activity>
+        <activity android:name=".Thread.ThreadActivity"></activity>
+        <activity android:name=".Rxjava.RxjavaActivity" />
         <activity
             android:name=".FitnessTest.VideoTestActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
