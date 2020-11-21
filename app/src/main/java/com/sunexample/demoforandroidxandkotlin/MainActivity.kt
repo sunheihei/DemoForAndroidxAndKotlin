@@ -9,6 +9,7 @@ import com.sunexample.demoforandroidxandkotlin.Fragment.FragmentActivity
 import com.sunexample.demoforandroidxandkotlin.ReadAndWrite.ReadAndWriteActivity
 import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
 import com.sunexample.demoforandroidxandkotlin.FitnessTest.VideoTestActivity
+import com.sunexample.demoforandroidxandkotlin.jetapck.JetPackActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         }
         videotest.setOnClickListener {
             startActivity(Intent(this, VideoTestActivity::class.java))
+        }
+        jectpack.setOnClickListener {
+            startActivity(Intent(this, JetPackActivity::class.java))
         }
     }
 }
