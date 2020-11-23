@@ -36,7 +36,7 @@ public class SystemTTS extends UtteranceProgressListener implements TextToSpeech
     }
 
     private SystemTTS() {
-        this.mContext = AppContext.getAppContext();
+        this.mContext = AppContext.Companion.getAppContext();
         textToSpeech = new TextToSpeech(mContext, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int i) {

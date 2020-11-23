@@ -10,9 +10,13 @@ import com.sunexample.demoforandroidxandkotlin.R
 import com.sunexample.demoforandroidxandkotlin.jetapck.bean.MusicBean
 import com.sunexample.demoforandroidxandkotlin.jetapck.common.Resource
 import com.sunexample.demoforandroidxandkotlin.jetapck.common.Status
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_jet_pack.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class JetPackActivity : AppCompatActivity() {
+
 
     val TAG = "JetPackActivity"
     lateinit var mSearchViewModule: SearchViewModel
@@ -22,6 +26,8 @@ class JetPackActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jet_pack)
+
+
 
         mSearchViewModule = ViewModelProvider(
             this,
