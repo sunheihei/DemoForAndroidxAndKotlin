@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,21 +18,21 @@ package com.sunexample.demoforandroidxandkotlin.jetapck
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import dagger.hilt.android.scopes.ActivityRetainedScoped
+
+import javax.inject.Inject
+import javax.inject.Provider
 
 
-/**
- * Factory for ViewModels
- * //SearchResultViewModel Factory
- */
-class SearchViewModelFactory(private val repository: SearchRepository) : ViewModelProvider.Factory {
-
+@ActivityRetainedScoped
+class SearchViewModelFactory @Inject constructor(
+    private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return SearchViewModel(
-                repository
-            ) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
+        val creator = creators[modelClass] ?: creators.entries.firstOrNull {
+            modelClass.isAssignableFrom(it.key)
+        }?.value ?: throw IllegalArgumentException("unknown model class $modelClass")
+        @Suppress("UNCHECKED_CAST")
+        return creator.get() as T
     }
 }

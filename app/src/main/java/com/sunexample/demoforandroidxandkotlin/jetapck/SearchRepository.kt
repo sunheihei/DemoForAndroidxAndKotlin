@@ -1,8 +1,6 @@
 package com.sunexample.demoforandroidxandkotlin.jetapck
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.sunexample.demoforandroidxandkotlin.User
 import com.sunexample.demoforandroidxandkotlin.jetapck.api.SearchService
 import com.sunexample.demoforandroidxandkotlin.jetapck.bean.MusicBean
 import com.sunexample.demoforandroidxandkotlin.jetapck.common.Resource
@@ -15,8 +13,9 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.ArrayList
+import javax.inject.Inject
 
-class SearchRepository(private val service: SearchService, private val nextservice: SearchService) {
+class SearchRepository @Inject constructor(private val service: SearchService) {
 
     private val uiScope = CoroutineScope(Dispatchers.Main)
     private val TAG = "SearchRepository"
@@ -39,9 +38,6 @@ class SearchRepository(private val service: SearchService, private val nextservi
         var mQueryKey = query.toLowerCase()
 
         mQueryKey = mQueryKey.replace(" ", "+")
-
-
-//        Log.d(TAG, "mQueryKey：$mQueryKey")
 
         if (isRequestInProgress) return
         VideoData.postValue(Resource(Status.LOADING, null, "LOADING"))

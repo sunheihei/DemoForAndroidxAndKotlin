@@ -16,43 +16,26 @@ interface SearchService {
 
 //    val url = "https://www.youtube.com/results?search_query=as&amp=&sp=SCiYAQE%253D"
 
-    companion object {
-        const val ApiBaseUrl = "https://www.youtube.com/"
-        const val NextbaseUrl = "https://www.youtube.com/youtubei/v1/"
-
-        fun create(): SearchService {
-            val logger = HttpLoggingInterceptor()
-            logger.level = HttpLoggingInterceptor.Level.BASIC
-
-            val client = OkHttpClient.Builder()
-                .addInterceptor(logger)
-                .build()
-            return Retrofit.Builder()
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .baseUrl(ApiBaseUrl)
-                .client(client)
-                .build()
-                .create(SearchService::class.java)
-        }
-
-        fun createnextpager(): SearchService {
-            val logger = HttpLoggingInterceptor()
-            logger.level = HttpLoggingInterceptor.Level.BASIC
-
-            val client = OkHttpClient.Builder()
-                .addInterceptor(logger)
-                .build()
-            return Retrofit.Builder()
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .baseUrl(NextbaseUrl)
-                .client(client)
-                .build()
-                .create(SearchService::class.java)
-        }
-
-    }
+//    companion object {
+//
+//
+////        fun createnextpager(): SearchService {
+////            val logger = HttpLoggingInterceptor()
+////            logger.level = HttpLoggingInterceptor.Level.BASIC
+////
+////            val client = OkHttpClient.Builder()
+////                .addInterceptor(logger)
+////                .build()
+////            return Retrofit.Builder()
+////                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+////                .addConverterFactory(ScalarsConverterFactory.create())
+////                .baseUrl(NextbaseUrl)
+////                .client(client)
+////                .build()
+////                .create(SearchService::class.java)
+////        }
+//
+//    }
 
 
     @GET("results?")

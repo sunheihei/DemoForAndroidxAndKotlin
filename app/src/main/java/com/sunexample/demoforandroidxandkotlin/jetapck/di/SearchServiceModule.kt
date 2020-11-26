@@ -1,0 +1,46 @@
+package com.sunexample.demoforandroidxandkotlin.jetapck.di
+
+import android.app.Activity
+import androidx.core.app.ActivityCompat
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import com.sunexample.demoforandroidxandkotlin.jetapck.api.SearchService
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityRetainedComponent
+import dagger.hilt.android.components.ApplicationComponent
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
+
+
+@InstallIn(ActivityRetainedComponent::class)
+@Module
+class SearchServiceModule {
+
+    val ApiBaseUrl = "https://www.youtube.com/"
+//    const val NextbaseUrl = "https://www.youtube.com/youtubei/v1/"
+
+    @Provides
+    fun create(): SearchService {
+        val logger = HttpLoggingInterceptor()
+        logger.level = HttpLoggingInterceptor.Level.BASIC
+
+        val client = OkHttpClient.Builder()
+            .addInterceptor(logger)
+            .build()
+        return Retrofit.Builder()
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .baseUrl(ApiBaseUrl)
+            .client(client)
+            .build()
+            .create(SearchService::class.java)
+    }
+
+
+
+}
