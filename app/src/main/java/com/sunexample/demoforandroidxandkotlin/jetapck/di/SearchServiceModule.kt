@@ -15,6 +15,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import javax.inject.Qualifier
 
 
 @InstallIn(ActivityRetainedComponent::class)
@@ -22,9 +23,10 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 class SearchServiceModule {
 
     val ApiBaseUrl = "https://www.youtube.com/"
-//    const val NextbaseUrl = "https://www.youtube.com/youtubei/v1/"
+    val NextbaseUrl = "https://www.youtube.com/youtubei/v1/"
 
     @Provides
+    @BindOneService
     fun create(): SearchService {
         val logger = HttpLoggingInterceptor()
         logger.level = HttpLoggingInterceptor.Level.BASIC
@@ -41,6 +43,33 @@ class SearchServiceModule {
             .create(SearchService::class.java)
     }
 
+    @Provides
+    @BindTwoService
+    fun createnextpager(): SearchService {
+        val logger = HttpLoggingInterceptor()
+        logger.level = HttpLoggingInterceptor.Level.BASIC
 
+        val client = OkHttpClient.Builder()
+            .addInterceptor(logger)
+            .build()
+        return Retrofit.Builder()
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .baseUrl(NextbaseUrl)
+            .client(client)
+            .build()
+            .create(SearchService::class.java)
+    }
 
 }
+
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class BindOneService
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class BindTwoService
+

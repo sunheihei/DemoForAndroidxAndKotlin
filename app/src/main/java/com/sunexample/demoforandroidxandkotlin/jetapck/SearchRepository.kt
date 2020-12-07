@@ -5,6 +5,8 @@ import com.sunexample.demoforandroidxandkotlin.jetapck.api.SearchService
 import com.sunexample.demoforandroidxandkotlin.jetapck.bean.MusicBean
 import com.sunexample.demoforandroidxandkotlin.jetapck.common.Resource
 import com.sunexample.demoforandroidxandkotlin.jetapck.common.Status
+import com.sunexample.demoforandroidxandkotlin.jetapck.di.BindOneService
+import com.sunexample.demoforandroidxandkotlin.jetapck.di.BindTwoService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,7 +17,10 @@ import org.json.JSONObject
 import java.util.ArrayList
 import javax.inject.Inject
 
-class SearchRepository @Inject constructor(private val service: SearchService) {
+class SearchRepository @Inject constructor(
+    @BindOneService private val service: SearchService,
+    @BindTwoService private val servicenext: SearchService
+) {
 
     private val uiScope = CoroutineScope(Dispatchers.Main)
     private val TAG = "SearchRepository"

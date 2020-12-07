@@ -14,30 +14,6 @@ import retrofit2.http.*
 
 interface SearchService {
 
-//    val url = "https://www.youtube.com/results?search_query=as&amp=&sp=SCiYAQE%253D"
-
-//    companion object {
-//
-//
-////        fun createnextpager(): SearchService {
-////            val logger = HttpLoggingInterceptor()
-////            logger.level = HttpLoggingInterceptor.Level.BASIC
-////
-////            val client = OkHttpClient.Builder()
-////                .addInterceptor(logger)
-////                .build()
-////            return Retrofit.Builder()
-////                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-////                .addConverterFactory(ScalarsConverterFactory.create())
-////                .baseUrl(NextbaseUrl)
-////                .client(client)
-////                .build()
-////                .create(SearchService::class.java)
-////        }
-//
-//    }
-
-
     @GET("results?")
     suspend fun getSearchList(
         @Query("search_query", encoded = true) key: String,

@@ -36,7 +36,7 @@ class JetPackActivity : AppCompatActivity() {
     private lateinit var mSearchKey: String
 
 //    val adapter = SongSheetAdapter(supportFragmentManager)
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jet_pack)
