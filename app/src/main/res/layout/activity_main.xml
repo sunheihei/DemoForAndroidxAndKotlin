@@ -38,15 +38,16 @@
         android:text="fragment" />
 
     <Button
-        android:id="@+id/videotest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="videotest" />
-    <Button
         android:id="@+id/jectpack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="jectpack" />
+
+    <Button
+        android:id="@+id/rxjava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="rxjava" />
 
 
 </LinearLayout>
