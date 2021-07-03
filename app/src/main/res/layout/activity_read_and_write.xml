@@ -95,7 +95,7 @@
             android:id="@+id/btn_open_ex_doc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="create_ex_doc" />
+            android:text="open_ex_doc" />
 
 
         <Button

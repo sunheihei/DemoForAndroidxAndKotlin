@@ -11,6 +11,7 @@ import com.sunexample.demoforandroidxandkotlin.ReadAndWrite.ReadAndWriteActivity
 import com.sunexample.demoforandroidxandkotlin.Rxjava.RxjavaActivity
 import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
 import com.sunexample.demoforandroidxandkotlin.jetapck.JetPackActivity
+import com.sunexample.demoforandroidxandkotlin.litepal.LitepalDemoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -41,7 +42,9 @@ class MainActivity : AppCompatActivity() {
         }
         rxjava.setOnClickListener {
             startActivity(Intent(this, RxjavaActivity::class.java))
-
+        }
+        litepal.setOnClickListener {
+            startActivity(Intent(this, LitepalDemoActivity::class.java))
         }
     }
 }

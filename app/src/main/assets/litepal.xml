@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="litepaldb" />
+    <version value="2" />
+    <list>
+        <mapping class="com.sunexample.demoforandroidxandkotlin.litepal.bean.News" />
+        <mapping class="com.sunexample.demoforandroidxandkotlin.litepal.bean.Introduction" />
+        <mapping class="com.sunexample.demoforandroidxandkotlin.litepal.bean.Category" />
+    </list>
+</litepal>

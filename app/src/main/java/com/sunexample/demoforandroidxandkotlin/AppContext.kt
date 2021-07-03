@@ -3,6 +3,8 @@ package com.sunexample.demoforandroidxandkotlin
 import android.app.Application
 import android.content.Context
 import dagger.hilt.android.HiltAndroidApp
+import org.litepal.LitePal
+import org.litepal.LitePalApplication
 
 @HiltAndroidApp
 class AppContext : Application() {
@@ -10,7 +12,7 @@ class AppContext : Application() {
         super.onCreate()
         appContext = this
 
-
+        LitePal.initialize(this)
         /*  if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.

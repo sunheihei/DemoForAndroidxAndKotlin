@@ -15,6 +15,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.permissionx.guolindev.PermissionX
 import com.sunexample.demoforandroidxandkotlin.R
@@ -218,11 +219,13 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private val CREATE_FILE = 1
+
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createFile(pickerInitialUri: Uri?) {
         val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
         intent.addCategory(Intent.CATEGORY_OPENABLE)
-        intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_TITLE, "invoice.txt")
+        intent.type = "application/pdf"
+        intent.putExtra(Intent.EXTRA_TITLE, "invoice.pdf")
 
         // Optionally, specify a URI for the directory that should be opened in
         // the system file picker when your app creates the document.
