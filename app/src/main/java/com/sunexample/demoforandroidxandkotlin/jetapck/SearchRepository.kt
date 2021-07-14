@@ -1,8 +1,10 @@
 package com.sunexample.demoforandroidxandkotlin.jetapck
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.sunexample.demoforandroidxandkotlin.jetapck.api.SearchService
 import com.sunexample.demoforandroidxandkotlin.jetapck.bean.MusicBean
+import com.sunexample.demoforandroidxandkotlin.jetapck.common.ConstantStringForSearchBody
 import com.sunexample.demoforandroidxandkotlin.jetapck.common.Resource
 import com.sunexample.demoforandroidxandkotlin.jetapck.common.Status
 import com.sunexample.demoforandroidxandkotlin.jetapck.di.BindOneService
@@ -11,6 +13,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -24,50 +28,82 @@ class SearchRepository @Inject constructor(
 
     private val uiScope = CoroutineScope(Dispatchers.Main)
     private val TAG = "SearchRepository"
+    var VideoDataList = mutableListOf<MusicBean>()  //VideoData
 
-    var VideoData: MutableLiveData<Resource<List<MusicBean>>> = MutableLiveData()
+    var VideoLiveData: MutableLiveData<Resource<List<MusicBean>>> = MutableLiveData()
 
     private var isRequestInProgress = false
 
 
     private val key = "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"
-    private var mNextToken = ""
+    private var mNextToken: String = "a"
 
     fun searchvideo(query: String): MutableLiveData<Resource<List<MusicBean>>> {
-        requestVideoData(query)
-        return VideoData
+        if (mNextToken.equals("a")) {
+            requestVideoData(query)
+            Log.d(TAG, "requestVideoData")
+        } else {
+            Log.d(TAG, "requestMoreVideoData")
+            requestMoreVideoData(query)
+        }
+        return VideoLiveData
     }
 
     private fun requestVideoData(query: String) {
-
         var mQueryKey = query.toLowerCase()
-
         mQueryKey = mQueryKey.replace(" ", "+")
-
         if (isRequestInProgress) return
-        VideoData.postValue(Resource(Status.LOADING, null, "LOADING"))
+        VideoLiveData.postValue(Resource(Status.LOADING, null, "LOADING"))
         isRequestInProgress = true
         uiScope.launch {
-            val response =
-                service.getSearchVideo(mQueryKey, "1")
-            if (response.isSuccessful) {
-                response.body()?.let {
-                    val allResults = mutableListOf<MusicBean>()
-                    allResults.addAll(parseVideo(it, true))
-                    VideoData.postValue(Resource(Status.SUCCESS, allResults, "success"))
+            try {
+                val response =
+                    service.getSearchVideo(mQueryKey, "1")
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        VideoDataList.addAll(ParseVideoData(it, true))
+                        VideoLiveData.postValue(Resource(Status.SUCCESS, VideoDataList, "SUCCESS"))
+                    }
+                    isRequestInProgress = false
+                } else {
+                    VideoLiveData.postValue(Resource(Status.ERROR, null, "ERROR"))
+                    isRequestInProgress = false
                 }
-                isRequestInProgress = false
-            } else {
-                VideoData.postValue(Resource(Status.ERROR, null, "ERROR"))
-                isRequestInProgress = false
+            } catch (e: Exception) {
+                VideoLiveData.postValue(Resource(Status.ERROR, null, "ERROR"))
             }
         }
     }
 
-
-    private suspend fun parseVideo(data: String, isFirst: Boolean) = withContext(Dispatchers.IO) {
-        return@withContext ParseVideoData(data, isFirst)
+    //请求Video下一页
+    private fun requestMoreVideoData(query: String) {
+        var mQueryKey = query.toLowerCase()
+        mQueryKey = mQueryKey.replace(" ", "+")
+        if (isRequestInProgress) return
+        VideoLiveData.postValue(Resource(Status.LOADING, null, "LOADING"))
+        isRequestInProgress = true
+        uiScope.launch {
+            try {
+                val RequestBody = ConstantStringForSearchBody.getVideoSearchBody(mNextToken)
+                    .toRequestBody("application/json".toMediaType())
+                val response =
+                    servicenext.getSearchNextPager(key, RequestBody)
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        VideoDataList.addAll(ParseVideoData(it, false))
+                        VideoLiveData.postValue(Resource(Status.SUCCESS, VideoDataList, "SUCCESS"))
+                    }
+                    isRequestInProgress = false
+                } else {
+                    VideoLiveData.postValue(Resource(Status.ERROR, null, "ERROR"))
+                    isRequestInProgress = false
+                }
+            } catch (e: Exception) {
+                VideoLiveData.postValue(Resource(Status.ERROR, null, "ERROR"))
+            }
+        }
     }
+
 
     //解析Video搜索结果
     fun ParseVideoData(data: String, isFirst: Boolean): List<MusicBean> {
@@ -122,7 +158,7 @@ class SearchRepository @Inject constructor(
                 videoRenderer.getJSONObject("title").getJSONArray("runs").getJSONObject(0)
                     .getString("text")
             } catch (e: Exception) {
-                continue
+                ""
             }
 
 
@@ -131,7 +167,7 @@ class SearchRepository @Inject constructor(
                     videoRenderer.getJSONObject("thumbnail").getJSONArray("thumbnails")
                 tempthumbnail.getJSONObject(tempthumbnail.length() - 1).getString("url")
             } catch (e: Exception) {
-                continue
+                ""
             }
 
 
@@ -144,20 +180,22 @@ class SearchRepository @Inject constructor(
             val viewCount = try {
                 videoRenderer.getJSONObject("viewCountText").getString("simpleText")
             } catch (e: Exception) {
-                continue
+                ""
             }
 
 
-            val subtitle: StringBuilder
-            try {
-                subtitle = StringBuilder().append("")
-                val temp =
-                    videoRenderer.getJSONObject("descriptionSnippet").getJSONArray("runs")
-                for (index in 0 until temp.length()) {
-                    subtitle.append(temp.getJSONObject(index).getString("text"))
-                }
+            val subtitle = try {
+//                subtitle = StringBuilder().append("")
+//                val temp =
+//                        videoRenderer.getJSONObject("descriptionSnippet").getJSONArray("runs")
+//                for (index in 0 until temp.length()) {
+//                    subtitle.append(temp.getJSONObject(index).getString("text"))
+//                }
+                videoRenderer.getJSONArray("detailedMetadataSnippets").getJSONObject(0)
+                    .getJSONObject("snippetText").getJSONArray("runs").getJSONObject(0)
+                    .getString("text")
             } catch (e: Exception) {
-                continue
+                ""
             }
 
 //            Log.d(TAG, "videoId: ${videoId}")

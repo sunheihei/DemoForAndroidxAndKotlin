@@ -1,15 +1,9 @@
 package com.sunexample.demoforandroidxandkotlin.jetapck.di
-
-import android.app.Activity
-import androidx.core.app.ActivityCompat
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import com.sunexample.demoforandroidxandkotlin.jetapck.api.SearchService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityRetainedComponent
-import dagger.hilt.android.components.ApplicationComponent
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

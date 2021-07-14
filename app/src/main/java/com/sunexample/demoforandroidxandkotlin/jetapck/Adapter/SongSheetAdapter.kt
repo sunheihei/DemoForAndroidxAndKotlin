@@ -32,18 +32,16 @@ class SongSheetAdapter @Inject constructor(@ActivityContext context: Context) :
         return SongSheetViewHolder.create(parent)
     }
 
-    var fragmentManager: FragmentManager? = null
+
     override fun onBindViewHolder(holder: SongSheetViewHolder, position: Int) {
 
         val musicBean = getItem(position)
         if (musicBean != null) {
-            fragmentManager?.let { holder.bind(musicBean, it) }
+            holder.bind(musicBean)
         }
     }
 
-    init {
-        this.fragmentManager = (context as FragmentActivity).supportFragmentManager
-    }
+
     companion object {
         private val REPO_COMPARATOR = object : DiffUtil.ItemCallback<MusicBean>() {
             override fun areItemsTheSame(oldItem: MusicBean, newItem: MusicBean): Boolean =
@@ -61,12 +59,12 @@ class SongSheetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private lateinit var musicbean: MusicBean
 
-    fun bind(musicBean: MusicBean, fragmentManager: FragmentManager) {
+    fun bind(musicBean: MusicBean) {
         if (musicBean == null) return
-        showRepoData(musicBean, fragmentManager)
+        showRepoData(musicBean)
     }
 
-    private fun showRepoData(musicBean: MusicBean, fragmentManager: FragmentManager) {
+    private fun showRepoData(musicBean: MusicBean) {
         this.musicbean = musicBean
         //绑定数据
         itemView.repo_name.setText(musicBean.mTitle)

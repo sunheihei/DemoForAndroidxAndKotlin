@@ -35,14 +35,13 @@ class JetPackActivity : AppCompatActivity() {
     }
     private lateinit var mSearchKey: String
 
-//    val adapter = SongSheetAdapter(supportFragmentManager)
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jet_pack)
 
 
-        search_rec.adapter = adapter
+        rec_search_result.adapter = adapter
 
         btn_search.setOnClickListener {
             mSearchKey = ed_search.text.toString()
@@ -75,7 +74,6 @@ class JetPackActivity : AppCompatActivity() {
 
             }
         })
-
-
     }
+
 }
