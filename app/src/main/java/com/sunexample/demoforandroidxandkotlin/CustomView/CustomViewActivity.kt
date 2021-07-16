@@ -5,19 +5,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.sunexample.demoforandroidxandkotlin.CustomView.DemoView.CusDemoActivity
 import com.sunexample.demoforandroidxandkotlin.CustomView.Scroll.ScrollDemoActivity
-import com.sunexample.demoforandroidxandkotlin.R
-import kotlinx.android.synthetic.main.activity_custom.*
+import com.sunexample.demoforandroidxandkotlin.databinding.ActivityCustomBinding
 
 class CustomViewActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityCustomBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_custom)
+        binding = ActivityCustomBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        cusdemo.setOnClickListener {
+        binding.cusdemo.setOnClickListener {
             startActivity(Intent(this, CusDemoActivity::class.java))
         }
 
-        srollview.setOnClickListener {
+        binding.srollview.setOnClickListener {
             startActivity(Intent(this, ScrollDemoActivity::class.java))
         }
 

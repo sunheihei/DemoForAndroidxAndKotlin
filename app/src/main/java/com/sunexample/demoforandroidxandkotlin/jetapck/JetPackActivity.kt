@@ -5,48 +5,53 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
-
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import com.sunexample.demoforandroidxandkotlin.R
+import com.sunexample.demoforandroidxandkotlin.databinding.ActivityJetPackBinding
 import com.sunexample.demoforandroidxandkotlin.jetapck.Adapter.SongSheetAdapter
 import com.sunexample.demoforandroidxandkotlin.jetapck.bean.MusicBean
 import com.sunexample.demoforandroidxandkotlin.jetapck.common.Resource
 import com.sunexample.demoforandroidxandkotlin.jetapck.common.Status
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_jet_pack.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class JetPackActivity : AppCompatActivity() {
 
 
+    lateinit var binding: ActivityJetPackBinding
+
     val TAG = "JetPackActivity"
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+//    @Inject
+//    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     @Inject
     lateinit var adapter: SongSheetAdapter
 
-    val mSearchViewModule: SearchViewModel by viewModels {
-        viewModelFactory
-    }
+    //    val mSearchViewModule: SearchViewModel by viewModels {
+//        viewModelFactory
+//    }
+    private val mSearchViewModule: SearchViewModel by viewModels()
+
+
     private lateinit var mSearchKey: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_jet_pack)
 
+        binding = ActivityJetPackBinding.inflate(layoutInflater)
 
-        rec_search_result.adapter = adapter
+        setContentView(binding.root)
 
-        btn_search.setOnClickListener {
-            mSearchKey = ed_search.text.toString()
+        binding.recSearchResult.adapter = adapter
+
+        binding.btnSearch.setOnClickListener {
+            mSearchKey = binding.edSearch.text.toString()
 
             mSearchKey.let {
+                Log.d(TAG,"mSearchKey")
                 mSearchViewModule.searchVideo(it)
             }
         }
@@ -57,7 +62,7 @@ class JetPackActivity : AppCompatActivity() {
                     when {
                         t.status == Status.SUCCESS -> {
                             Log.d(TAG, "Status ： ${t.status}   Data : ${t.data!!.size}")
-                            progressbar?.let {
+                            binding.progressbar?.let {
                                 it.visibility = View.GONE
                             }
                             adapter.submitList(t.data)

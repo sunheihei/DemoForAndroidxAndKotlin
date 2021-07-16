@@ -2,13 +2,14 @@ package com.sunexample.demoforandroidxandkotlin.CustomView.Scroll
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.sunexample.demoforandroidxandkotlin.R
-import kotlinx.android.synthetic.main.activity_scroll_demo.*
+import com.sunexample.demoforandroidxandkotlin.databinding.ActivityScrollDemoBinding
 
 class ScrollDemoActivity : AppCompatActivity() {
+    lateinit var binding: ActivityScrollDemoBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scroll_demo)
+        binding = ActivityScrollDemoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
 //        srcollview.smoothScrollTo(-400, -300)

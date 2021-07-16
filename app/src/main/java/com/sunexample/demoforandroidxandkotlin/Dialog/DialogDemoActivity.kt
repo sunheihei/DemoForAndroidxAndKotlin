@@ -6,30 +6,33 @@ import android.os.Bundle
 import android.util.Log
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.sunexample.demoforandroidxandkotlin.R
-import kotlinx.android.synthetic.main.activity_dialog_demo.*
+import com.sunexample.demoforandroidxandkotlin.databinding.ActivityDialogDemoBinding
 
 class DialogDemoActivity : AppCompatActivity() {
 
     val TAG = "DialogDemoActivity"
+    lateinit var binding: ActivityDialogDemoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dialog_demo)
 
-        normal_dialog.setOnClickListener {
+        binding = ActivityDialogDemoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.normalDialog.setOnClickListener {
             NormalDoalog(this)
         }
-        single_dialog.setOnClickListener {
+        binding.singleDialog.setOnClickListener {
             SingleChoiseDoalog(this)
         }
-        multiply_dialog.setOnClickListener {
+        binding.multiplyDialog.setOnClickListener {
             MultiplChoiseDoalog(this)
         }
 
-        fragment_dialog.setOnClickListener {
+        binding.fragmentDialog.setOnClickListener {
             FragmentDialog(this)
         }
-        bottom_fragment_dialog.setOnClickListener {
+        binding.bottomFragmentDialog.setOnClickListener {
             BottomDialogFraDemo.Instance().show(supportFragmentManager, "dialogdemo")
         }
 

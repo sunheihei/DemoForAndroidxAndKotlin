@@ -3,9 +3,8 @@ package com.sunexample.demoforandroidxandkotlin.litepal
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.sunexample.demoforandroidxandkotlin.R
+import com.sunexample.demoforandroidxandkotlin.databinding.ActivityLitepalDemoBinding
 import com.sunexample.demoforandroidxandkotlin.litepal.bean.News
-import kotlinx.android.synthetic.main.activity_litepal_demo.*
 import org.litepal.LitePal
 import java.util.*
 
@@ -14,27 +13,29 @@ class LitepalDemoActivity : AppCompatActivity() {
 
     lateinit var adapter: litepalRecAdapter
     private var NewsData: MutableList<News> = mutableListOf()
+    lateinit var binding: ActivityLitepalDemoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_litepal_demo)
+        binding = ActivityLitepalDemoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         init()
     }
 
     private fun init() {
-        litepal_add.setOnClickListener {
+        binding.litepalAdd.setOnClickListener {
             LitePalAdd()
         }
 
-        litepal_delete.setOnClickListener {
+        binding.litepalDelete.setOnClickListener {
             LitePalDelete()
         }
 
-        litepal_updata.setOnClickListener {
+        binding.litepalUpdata.setOnClickListener {
             LitePalUpData()
         }
 
-        litepal_find.setOnClickListener {
+        binding.litepalFind.setOnClickListener {
             LitePalFind()
         }
 
@@ -45,7 +46,7 @@ class LitepalDemoActivity : AppCompatActivity() {
         NewsData = LitePal.findAll(News::class.java)
         adapter = litepalRecAdapter(this)
         adapter.setData(NewsData)
-        rec_sql.adapter = adapter
+        binding.recSql.adapter = adapter
 
     }
 

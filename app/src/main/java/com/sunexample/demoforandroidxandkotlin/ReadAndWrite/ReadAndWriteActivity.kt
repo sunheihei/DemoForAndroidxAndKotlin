@@ -19,7 +19,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.permissionx.guolindev.PermissionX
 import com.sunexample.demoforandroidxandkotlin.R
-import kotlinx.android.synthetic.main.activity_read_and_write.*
+import com.sunexample.demoforandroidxandkotlin.databinding.ActivityReadAndWriteBinding
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -29,6 +29,8 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
 
     val TAG = "ReadAndWriteActivity"
 
+    lateinit var binding: ActivityReadAndWriteBinding
+
     /**
      * 官方文档地址
      * https://developer.android.com/training/data-storage/app-specific#internal
@@ -36,7 +38,9 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_read_and_write)
+        binding = ActivityReadAndWriteBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
 
         PermissionX.init(this)
             .permissions(
@@ -66,17 +70,17 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
         Log.d(TAG, "firstVolumeName:$firstVolumeName")
 
 
-        btn_write_cache_file.setOnClickListener(this)
-        btn_write_out_cache_file.setOnClickListener(this)
-        btn_write_ex_file.setOnClickListener(this)
-        btn_read_cache_file.setOnClickListener(this)
-        btn_read_out_cache_file.setOnClickListener(this)
-        btn_read_ex_file.setOnClickListener(this)
-        btn_create_ex_new_file.setOnClickListener(this)
-        btn_delete_ex_file.setOnClickListener(this)
-        btn_create_ex_doc.setOnClickListener(this)
-        btn_open_ex_doc.setOnClickListener(this)
-        btn_open_doc_directory.setOnClickListener(this)
+        binding.btnWriteCacheFile.setOnClickListener(this)
+        binding.btnWriteOutCacheFile.setOnClickListener(this)
+        binding.btnWriteExFile.setOnClickListener(this)
+        binding.btnReadCacheFile.setOnClickListener(this)
+        binding.btnReadOutCacheFile.setOnClickListener(this)
+        binding.btnReadExFile.setOnClickListener(this)
+        binding.btnCreateExNewFile.setOnClickListener(this)
+        binding.btnDeleteExFile.setOnClickListener(this)
+        binding.btnCreateExDoc.setOnClickListener(this)
+        binding.btnOpenExDoc.setOnClickListener(this)
+        binding.btnOpenDocDirectory.setOnClickListener(this)
 
     }
 
@@ -85,6 +89,7 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
         return Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.btn_write_cache_file -> {

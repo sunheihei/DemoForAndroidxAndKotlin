@@ -4,17 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.sunexample.demoforandroidxandkotlin.AppContext
 import com.sunexample.demoforandroidxandkotlin.R
 import com.sunexample.demoforandroidxandkotlin.jetapck.bean.MusicBean
 import dagger.hilt.android.qualifiers.ActivityContext
-import kotlinx.android.synthetic.main.saerch_repo_layout.view.*
 import javax.inject.Inject
 
 
@@ -58,6 +56,13 @@ class SongSheetAdapter @Inject constructor(@ActivityContext context: Context) :
 class SongSheetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private lateinit var musicbean: MusicBean
+    private lateinit var repo_name: TextView
+    private lateinit var repo_img: ImageView
+
+    init {
+        repo_name = itemView.findViewById(R.id.repo_name)
+        repo_img = itemView.findViewById(R.id.repo_img)
+    }
 
     fun bind(musicBean: MusicBean) {
         if (musicBean == null) return
@@ -67,8 +72,8 @@ class SongSheetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private fun showRepoData(musicBean: MusicBean) {
         this.musicbean = musicBean
         //绑定数据
-        itemView.repo_name.setText(musicBean.mTitle)
-        Glide.with(itemView.context).load(musicbean.mThumbnails).into(itemView.repo_img)
+        repo_name.setText(musicBean.mTitle)
+        Glide.with(itemView.context).load(musicbean.mThumbnails).into(repo_img)
     }
 
     companion object {
