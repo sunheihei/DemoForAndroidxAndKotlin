@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.sunexample.demoforandroidxandkotlin.CustomView.CustomViewActivity
 import com.sunexample.demoforandroidxandkotlin.Dialog.DialogDemoActivity
 import com.sunexample.demoforandroidxandkotlin.Fragment.FragmentActivity
+import com.sunexample.demoforandroidxandkotlin.GestureDemo.SimpleGestureActivity
 import com.sunexample.demoforandroidxandkotlin.ReadAndWrite.ReadAndWriteActivity
 import com.sunexample.demoforandroidxandkotlin.Rxjava.RxjavaActivity
 import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
@@ -48,6 +49,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.litepal.setOnClickListener {
             startActivity(Intent(this, LitepalDemoActivity::class.java))
+        }
+        binding.gesture.setOnClickListener {
+            startActivity(Intent(this, SimpleGestureActivity::class.java))
         }
     }
 }

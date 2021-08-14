@@ -23,17 +23,10 @@ class JetPackActivity : AppCompatActivity() {
 
     val TAG = "JetPackActivity"
 
-//    @Inject
-//    lateinit var viewModelFactory: ViewModelProvider.Factory
-
     @Inject
     lateinit var adapter: SongSheetAdapter
 
-    //    val mSearchViewModule: SearchViewModel by viewModels {
-//        viewModelFactory
-//    }
     private val mSearchViewModule: SearchViewModel by viewModels()
-
 
     private lateinit var mSearchKey: String
 
