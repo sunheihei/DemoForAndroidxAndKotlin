@@ -53,5 +53,8 @@ class MainActivity : AppCompatActivity() {
         binding.gesture.setOnClickListener {
             startActivity(Intent(this, SimpleGestureActivity::class.java))
         }
+
+        //new mac test
+
     }
 }
