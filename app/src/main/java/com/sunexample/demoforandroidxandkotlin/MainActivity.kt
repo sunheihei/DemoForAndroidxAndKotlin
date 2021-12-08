@@ -8,6 +8,7 @@ import com.sunexample.demoforandroidxandkotlin.Dialog.DialogDemoActivity
 import com.sunexample.demoforandroidxandkotlin.Fragment.FragmentActivity
 import com.sunexample.demoforandroidxandkotlin.GestureDemo.SimpleGestureActivity
 import com.sunexample.demoforandroidxandkotlin.ReadAndWrite.ReadAndWriteActivity
+import com.sunexample.demoforandroidxandkotlin.RecycleView.ComplexRecycleViewActivity
 import com.sunexample.demoforandroidxandkotlin.Rxjava.RxjavaActivity
 import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
 import com.sunexample.demoforandroidxandkotlin.databinding.ActivityMainBinding
@@ -23,8 +24,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(getLayoutInflater())
         setContentView(binding.root)
-
-//        var user = User("sun", 20)
 
         binding.styleAndTheme.setOnClickListener {
             startActivity(Intent(this, StyleAndThemeActivity::class.java))
@@ -52,6 +51,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.gesture.setOnClickListener {
             startActivity(Intent(this, SimpleGestureActivity::class.java))
+        }
+        binding.recycleview.setOnClickListener {
+            startActivity(Intent(this, ComplexRecycleViewActivity::class.java))
         }
     }
 }

@@ -19,6 +19,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".RecycleView.ComplexRecycleViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".GestureDemo.SimpleGestureActivity"
             android:exported="true" />
         <activity android:name=".litepal.LitepalDemoActivity" />
