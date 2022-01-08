@@ -19,12 +19,26 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".LottieAnimDemo.LottieDemoActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+
+        <activity
             android:name=".RecycleView.ComplexRecycleViewActivity"
             android:exported="false" />
         <activity
             android:name=".GestureDemo.SimpleGestureActivity"
             android:exported="true" />
-        <activity android:name=".litepal.LitepalDemoActivity" />
+        <activity android:name=".litepal.LitepalDemoActivity">
+
+        </activity>
         <activity android:name=".jetapck.JetPackActivity">
 
             <!-- <intent-filter> -->
@@ -44,11 +58,11 @@
         <activity android:name=".Dialog.DialogDemoActivity" />
         <activity android:name=".StyleAndTheme.StyleAndThemeActivity" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
     </application>
 
