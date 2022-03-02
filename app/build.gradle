@@ -66,7 +66,9 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-    def lifecycle_version = "2.2.0"
+    def lifecycle_version = "2.3.1"
+
+    implementation("androidx.fragment:fragment-ktx:1.4.1")
 
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
@@ -87,14 +89,25 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation("io.reactivex.rxjava3:rxkotlin:3.0.1")
     implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
-    // 依赖协程核心库
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0"
+    //Kotlin Coroutines
+    def coroutines_android_version = '1.5.2'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_android_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android_version"
+
+    //room
+    def roomVersion = "2.3.0"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$roomVersion")
+    // optional - RxJava3 support for Room
+    implementation("androidx.room:room-rxjava3:$roomVersion")
 
     //Hilt
-    implementation "com.google.dagger:hilt-android:2.37"
-    kapt "com.google.dagger:hilt-android-compiler:2.37"
-
+    implementation 'com.google.dagger:hilt-android:2.38.1'
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    kapt 'com.google.dagger:hilt-android-compiler:2.38.1'
+    kapt "androidx.hilt:hilt-compiler:1.0.0"
 
     implementation 'com.airbnb.android:lottie:4.2.2'
 
