@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SimpleGestureActivity::class.java))
         }
 
-        //new mac test
+        //new mac test 222
 
     }
 }
