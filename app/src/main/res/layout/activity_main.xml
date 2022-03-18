@@ -43,11 +43,6 @@
         android:layout_height="wrap_content"
         android:text="fragment" />
 
-    <Button
-        android:id="@+id/jectpack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="jectpack" />
 
     <Button
         android:id="@+id/rxjava"
@@ -66,6 +61,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="gesture" />
+
+    <Button
+        android:id="@+id/typeevaluator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="typeevaluator" />
 
 
 </LinearLayout>

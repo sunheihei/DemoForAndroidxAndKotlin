@@ -11,8 +11,8 @@ import com.sunexample.demoforandroidxandkotlin.ReadAndWrite.ReadAndWriteActivity
 import com.sunexample.demoforandroidxandkotlin.RecycleView.ComplexRecycleViewActivity
 import com.sunexample.demoforandroidxandkotlin.Rxjava.RxjavaActivity
 import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
+import com.sunexample.demoforandroidxandkotlin.TypeEvaluatorDemo.TypeEvaluatorActivity
 import com.sunexample.demoforandroidxandkotlin.databinding.ActivityMainBinding
-import com.sunexample.demoforandroidxandkotlin.jetapck.JetPackActivity
 import com.sunexample.demoforandroidxandkotlin.litepal.LitepalDemoActivity
 
 
@@ -40,9 +40,6 @@ class MainActivity : AppCompatActivity() {
         binding.fragment.setOnClickListener {
             startActivity(Intent(this, FragmentActivity::class.java))
         }
-        binding.jectpack.setOnClickListener {
-            startActivity(Intent(this, JetPackActivity::class.java))
-        }
         binding.rxjava.setOnClickListener {
             startActivity(Intent(this, RxjavaActivity::class.java))
         }
@@ -54,6 +51,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.recycleview.setOnClickListener {
             startActivity(Intent(this, ComplexRecycleViewActivity::class.java))
+        }
+        binding.typeevaluator.setOnClickListener {
+            startActivity(Intent(this, TypeEvaluatorActivity::class.java))
         }
     }
 }
