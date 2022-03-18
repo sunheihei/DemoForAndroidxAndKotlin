@@ -20,6 +20,12 @@
         android:text="DialogDemo" />
 
     <Button
+        android:id="@+id/recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="recycleview" />
+
+    <Button
         android:id="@+id/customview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +35,7 @@
         android:id="@+id/writeandread"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-    android:text="writeandread" />
+        android:text="writeandread" />
 
     <Button
         android:id="@+id/fragment"
@@ -37,11 +43,6 @@
         android:layout_height="wrap_content"
         android:text="fragment" />
 
-    <Button
-        android:id="@+id/jectpack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="jectpack" />
 
     <Button
         android:id="@+id/rxjava"
@@ -54,9 +55,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="litepal" />
+
     <Button
         android:id="@+id/gesture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="gesture" />
+
+    <Button
+        android:id="@+id/typeevaluator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="typeevaluator" />
+
+
 </LinearLayout>

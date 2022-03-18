@@ -41,7 +41,7 @@ class BottomDialogFraDemo : BottomSheetDialogFragment() {
     private fun setupBottomSheet(dialogInterface: DialogInterface) {
         val bottomSheetDialog = dialogInterface as BottomSheetDialog
         val bottomSheet = bottomSheetDialog.findViewById<View>(
-            com.google.android.material.R.id.design_bottom_sheet
+            R.id.design_bottom_sheet
         )
             ?: return
         bottomSheet.setBackgroundColor(Color.TRANSPARENT)

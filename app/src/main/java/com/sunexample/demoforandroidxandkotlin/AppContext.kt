@@ -2,11 +2,8 @@ package com.sunexample.demoforandroidxandkotlin
 
 import android.app.Application
 import android.content.Context
-import dagger.hilt.android.HiltAndroidApp
 import org.litepal.LitePal
-import org.litepal.LitePalApplication
 
-@HiltAndroidApp
 class AppContext : Application() {
     override fun onCreate() {
         super.onCreate()
