@@ -58,5 +58,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LeonidsActivity::class.java))
         }
 
+        //github' test
     }
 }
