@@ -13,11 +13,13 @@
         <entry key="..\:/MyApplication/DemoForAndroidXAndKotlin/app/src/main/res/layout/activity_simple_gesture.xml" value="0.34791666666666665" />
         <entry key="..\:/MyApplication/DemoForAndroidXAndKotlin/app/src/main/res/layout/activity_type_evaluator.xml" value="0.34791666666666665" />
         <entry key="..\:/MyApplication/DemoForAndroidXAndKotlin/app/src/main/res/layout/item_rec_view_layout.xml" value="0.34791666666666665" />
+        <entry key="..\:/MyApplication/DemoForAndroidxAndKotlin/app/src/main/res/layout/activity_leonids.xml" value="0.34791666666666665" />
         <entry key="app/src/main/res/layout/activity_leonids.xml" value="0.3328125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3328125" />
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

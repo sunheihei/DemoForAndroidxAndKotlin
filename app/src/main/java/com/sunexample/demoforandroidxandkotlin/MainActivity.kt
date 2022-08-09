@@ -7,7 +7,6 @@ import com.sunexample.demoforandroidxandkotlin.CustomView.CustomViewActivity
 import com.sunexample.demoforandroidxandkotlin.Dialog.DialogDemoActivity
 import com.sunexample.demoforandroidxandkotlin.Fragment.FragmentActivity
 import com.sunexample.demoforandroidxandkotlin.GestureDemo.SimpleGestureActivity
-import com.sunexample.demoforandroidxandkotlin.Leonids.LeonidsActivity
 import com.sunexample.demoforandroidxandkotlin.ReadAndWrite.ReadAndWriteActivity
 import com.sunexample.demoforandroidxandkotlin.Rxjava.RxjavaActivity
 import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
@@ -54,10 +53,6 @@ class MainActivity : AppCompatActivity() {
         binding.typeevaluator.setOnClickListener {
             startActivity(Intent(this, TypeEvaluatorActivity::class.java))
         }
-        binding.leonids.setOnClickListener {
-            startActivity(Intent(this, LeonidsActivity::class.java))
-        }
 
-        //github' test
     }
 }

@@ -19,9 +19,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Leonids.LeonidsActivity"
-            android:exported="false" />
-        <activity
             android:name=".TypeEvaluatorDemo.TypeEvaluatorActivity"
             android:exported="false" />
         <activity
