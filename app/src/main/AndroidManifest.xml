@@ -19,29 +19,29 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".TypeEvaluatorDemo.TypeEvaluatorActivity"
+            android:name=".typeEvaluatorDemo.TypeEvaluatorActivity"
             android:exported="false" />
         <activity
-            android:name=".LottieAnimDemo.LottieDemoActivity"
+            android:name=".lottieAnimDemo.LottieDemoActivity"
             android:exported="true" />
         <activity
-            android:name=".RecycleView.ComplexRecycleViewActivity"
+            android:name=".recycleView.ComplexRecycleViewActivity"
             android:exported="false" />
         <activity
-            android:name=".GestureDemo.SimpleGestureActivity"
+            android:name=".gestureDemo.SimpleGestureActivity"
             android:exported="true" />
         <activity android:name=".litepal.LitepalDemoActivity" />
-        <activity android:name=".Thread.ThreadActivity" />
-        <activity android:name=".Rxjava.RxjavaActivity" />
-        <activity android:name=".Fragment.FragmentActivity" />
-        <activity android:name=".CustomView.Scroll.ScrollDemoActivity" />
-        <activity android:name=".ReadAndWrite.ReadAndWriteActivity" />
+        <activity android:name=".thread.ThreadActivity" />
+        <activity android:name=".rxjava.RxjavaActivity" />
+        <activity android:name=".fragment.FragmentActivity" />
+        <activity android:name=".customView.Scroll.ScrollDemoActivity" />
+        <activity android:name=".readAndWrite.ReadAndWriteActivity" />
         <activity
-            android:name=".CustomView.DemoView.CusDemoActivity"
+            android:name=".customView.DemoView.CusDemoActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".CustomView.CustomViewActivity" />
-        <activity android:name=".Dialog.DialogDemoActivity" />
-        <activity android:name=".StyleAndTheme.StyleAndThemeActivity" />
+        <activity android:name=".customView.CustomViewActivity" />
+        <activity android:name=".dialog.DialogDemoActivity" />
+        <activity android:name=".styleAndTheme.StyleAndThemeActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
