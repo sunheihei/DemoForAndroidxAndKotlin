@@ -43,7 +43,7 @@ class DialogDemoActivity : AppCompatActivity() {
      */
     fun NormalDoalog(context: Context) {
         MaterialAlertDialogBuilder(context).setTitle("Default Dialog")
-            .setIcon(R.drawable.ic_launcher_foreground)
+            .setIcon(R.mipmap.ic_launcher)
             .setMessage("Default Dialog")
             .setPositiveButton("ok") { dialog, which ->
                 Log.d(TAG, "ok")

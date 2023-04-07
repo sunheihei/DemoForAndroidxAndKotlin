@@ -23,11 +23,7 @@ class SimpleGestureActivity : AppCompatActivity() {
 
         mGestureDetector = GestureDetector(this, MyGestureListener())
 
-        binding.btnGesture.setOnTouchListener(object : View.OnTouchListener {
-            override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
-               return mGestureDetector.onTouchEvent(p1);
-            }
-        })
+        binding.btnGesture.setOnTouchListener { p0, p1 -> mGestureDetector.onTouchEvent(p1); }
 
     }
 }

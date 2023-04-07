@@ -52,19 +52,21 @@ class LottieDemoActivity : AppCompatActivity() {
 //            Log.d(TAG, "viewCooler PLAY")
 //        }
         binding.viewCooler.addAnimatorListener(object : Animator.AnimatorListener {
-            override fun onAnimationStart(animation: Animator?) {
+
+
+            override fun onAnimationStart(p0: Animator) {
                 Log.d(TAG, "onAnimationStart")
             }
 
-            override fun onAnimationEnd(animation: Animator?) {
+            override fun onAnimationEnd(p0: Animator) {
                 Log.d(TAG, "onAnimationEnd")
             }
 
-            override fun onAnimationCancel(animation: Animator?) {
+            override fun onAnimationCancel(p0: Animator) {
                 Log.d(TAG, "onAnimationCancel")
             }
 
-            override fun onAnimationRepeat(animation: Animator?) {
+            override fun onAnimationRepeat(p0: Animator) {
                 Log.d(TAG, "onAnimationRepeat")
             }
 
