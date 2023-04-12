@@ -12,6 +12,7 @@ import com.sunexample.demoforandroidxandkotlin.rxjava.RxjavaActivity
 import com.sunexample.demoforandroidxandkotlin.styleAndTheme.StyleAndThemeActivity
 import com.sunexample.demoforandroidxandkotlin.typeEvaluatorDemo.TypeEvaluatorActivity
 import com.sunexample.demoforandroidxandkotlin.databinding.ActivityMainBinding
+import com.sunexample.demoforandroidxandkotlin.flow.FlowActivity
 import com.sunexample.demoforandroidxandkotlin.litepal.LitepalDemoActivity
 
 
@@ -53,6 +54,8 @@ class MainActivity : AppCompatActivity() {
         binding.typeevaluator.setOnClickListener {
             startActivity(Intent(this, TypeEvaluatorActivity::class.java))
         }
-
+        binding.flow.setOnClickListener {
+            startActivity(Intent(this, FlowActivity::class.java))
+        }
     }
 }

@@ -68,8 +68,8 @@
         android:layout_height="wrap_content"
         android:text="typeevaluator" />
     <Button
-        android:id="@+id/leonids"
-        android:text="leonids"
+        android:id="@+id/flow"
+        android:text="flow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

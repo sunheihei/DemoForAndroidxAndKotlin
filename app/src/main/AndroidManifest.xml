@@ -19,6 +19,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".flow.FlowActivity"
+            android:exported="false" />
+        <activity
             android:name=".typeEvaluatorDemo.TypeEvaluatorActivity"
             android:exported="false" />
         <activity
