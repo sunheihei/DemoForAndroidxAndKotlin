@@ -7,4 +7,5 @@
     <string name="next">Next</string>
     <string name="search">Search</string>
     <string name="name">Name</string>
+    <string name="manage_require_permission">Please give the permission to delete or move the file.</string>
 </resources>

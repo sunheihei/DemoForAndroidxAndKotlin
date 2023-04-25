@@ -41,19 +41,14 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
 
-        PermissionX.init(this)
-            .permissions(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.ACCESS_MEDIA_LOCATION
-            )
-            .request { allGranted, grantedList, deniedList ->
+        PermissionX.init(this).permissions(
+                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_MEDIA_LOCATION
+            ).request { allGranted, grantedList, deniedList ->
                 if (allGranted) {
                     Toast.makeText(this, "All permissions are granted", Toast.LENGTH_LONG).show()
                 } else {
                     Toast.makeText(
-                        this,
-                        "These permissions are denied: $deniedList",
-                        Toast.LENGTH_LONG
+                        this, "These permissions are denied: $deniedList", Toast.LENGTH_LONG
                     ).show()
                 }
             }
@@ -92,35 +87,45 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.btn_write_cache_file -> {
-                WriteCacheFile()
+                writeCacheFile()
             }
+
             R.id.btn_read_cache_file -> {
-                ReadCacheFile()
+                readCacheFile()
             }
+
             R.id.btn_write_out_cache_file -> {
-                WriteOutCacheFile()
+                writeOutCacheFile()
             }
+
             R.id.btn_read_out_cache_file -> {
-                ReadOutCacheFile()
+                readOutCacheFile()
             }
+
             R.id.btn_write_ex_file -> {
-                WriteExtraFile()
+                writeExtraFile()
             }
+
             R.id.btn_read_ex_file -> {
-                ReadExtraFile()
+                readExtraFile()
             }
+
             R.id.btn_create_ex_new_file -> {
-                WriteToExtraDownLoad()
+                writeToExtraDownLoad()
             }
+
             R.id.btn_delete_ex_file -> {
                 deleteExFile()
             }
+
             R.id.btn_create_ex_doc -> {
                 createFile(null);
             }
+
             R.id.btn_open_ex_doc -> {
                 openFile(null)
             }
+
             R.id.btn_open_doc_directory -> {
                 openDirectory(null)
             }
@@ -129,7 +134,7 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
 
 
     //写入内部存储
-    private fun WriteCacheFile() {
+    private fun writeCacheFile() {
         val filename = "myfile"
         val fileContents = "Hello world!"
         openFileOutput(filename, Context.MODE_PRIVATE).use {
@@ -139,7 +144,7 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //读取内部存储
-    private fun ReadCacheFile() {
+    private fun readCacheFile() {
         val filename = "myfile"
         var Content: String = ""
         openFileInput(filename).bufferedReader().use {
@@ -149,12 +154,11 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    private fun WriteOutCacheFile() {
+    private fun writeOutCacheFile() {
         val filename = "myfile"
         val fileContents = "Hello world!"
         if (isExternalStorageWritable()) {
-            val CacheFile =
-                File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename)
+            val CacheFile = File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename)
 
 //            Log.d(TAG, "appSpecificExternalDir:$CacheFile")
 
@@ -166,12 +170,11 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    private fun ReadOutCacheFile() {
+    private fun readOutCacheFile() {
         val filename = "myfile"
         var Content: String = ""
         if (isExternalStorageWritable()) {
-            val CacheFile =
-                File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename)
+            val CacheFile = File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename)
             FileInputStream(CacheFile).bufferedReader().use {
                 Content = it.readText()
             }
@@ -180,12 +183,12 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //写入外部存储
-    private fun WriteExtraFile() {
+    private fun writeExtraFile() {
 
     }
 
     //读取外部存储
-    private fun ReadExtraFile() {
+    private fun readExtraFile() {
         var Content: String = ""
         contentResolver.openInputStream(Uri!!).use { stream ->
             stream!!.bufferedReader().use {
@@ -200,12 +203,10 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
     var Uri: Uri? = null
 
     //写入外部存储
-    private fun WriteToExtraDownLoad() {
+    private fun writeToExtraDownLoad() {
         //insertFileIntoMediaStore 方法只能在文件没生成的情况下生效，当文件已经存在，则uri会返回null
         var uri = insertFileIntoMediaStore(
-            "myfile.txt",
-            "",
-            Environment.DIRECTORY_DOWNLOADS
+            "myfile.txt", "", Environment.DIRECTORY_DOWNLOADS
 //            Environment.DIRECTORY_DOWNLOADS + File.separator + "DemoApp"  //中间多创建一层文件夹
 
         )
@@ -254,23 +255,15 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
     fun openDirectory(pickerInitialUri: Uri?) {
         // Choose a directory using the system's file picker.
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
-            // Provide read access to files and sub-directories in the user-selected
-            // directory.
             flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-
-            // Optionally, specify a URI for the directory that should be opened in
-            // the system file picker when it loads.
-//            putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri)
         }
-
         startActivityForResult(intent, REQUEST_CODE)
     }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_PDF_FILE && resultCode == Activity.RESULT_OK
-        ) {
+        if (requestCode == PICK_PDF_FILE && resultCode == Activity.RESULT_OK) {
             data?.data?.also { uri ->
                 Log.d(TAG, " PICK_PDF_FILE uri:${uri}")
             }
@@ -289,7 +282,7 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
         }
         val fileContents = "Hello world!"
         if (isExternalStorageWritable()) {
-            getContentResolver().openOutputStream(insertUri).use {
+            contentResolver.openOutputStream(insertUri).use {
                 it!!.write(fileContents.toByteArray())
             }
             Log.d(TAG, " WriteCacheFile  Succecc")
@@ -298,9 +291,7 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private fun insertFileIntoMediaStore(
-        fileName: String,
-        MIME_TYPE: String,
-        relativePath: String
+        fileName: String, MIME_TYPE: String, relativePath: String
     ): Uri? {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
             return null
