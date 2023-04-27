@@ -52,7 +52,7 @@ class StorageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.root.setOnClickListener {
                 itemClick?.invoke(f)
             }
-            
+
         }
     }
 
