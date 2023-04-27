@@ -79,16 +79,7 @@ class SimpleFilesActivity : AppCompatActivity() {
     private fun initView() {
         binding.recFiles.adapter = adapter
         adapter.setOnItemClick {
-
-            if (it.path.contains(dataPath)) {
-                if (!fileUriUtils.isGrant(this)) {
-                    fileUriUtils.startForRoot(this, REQUEST_GRANT_DATA)
-                } else {
-                    getFileDocumentFile(it)
-                }
-            } else {
-                getFileNormal(it)
-            }
+            getFile(it)
         }
 
         if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
@@ -96,15 +87,30 @@ class SimpleFilesActivity : AppCompatActivity() {
             mCurrentFile = mExternalFile
         }
 
-        getFileNormal(mExternalFile)
+        getFile(mExternalFile)
 
     }
+
+    private fun getFile(file: File) {
+        if (file.path.contains(dataPath)) {
+            if (!fileUriUtils.isGrant(this)) {
+                fileUriUtils.startForRoot(this, REQUEST_GRANT_DATA)
+            } else {
+                getFileDocumentFile(file)
+            }
+        } else {
+            getFileNormal(file)
+        }
+    }
+
 
     private fun getFileDocumentFile(it: File) {
         Log.d(TAG, "file path : ${it.path}")
         val pathList = it.path.split("/")
         val uri = fileUriUtils.changeToUri(it.path)
         Log.d(TAG, "file path2 : ${uri}")
+
+        mCurrentFile = it
 
         var templeDocumentFile = DocumentFile.fromTreeUri(
             this, Uri.parse(uri)
@@ -190,7 +196,7 @@ class SimpleFilesActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (!mCurrentFile.path.equals(mExternalFile.path)) {
-            mCurrentFile.parentFile?.let { getFileNormal(it) }
+            mCurrentFile.parentFile?.let { getFile(it) }
         } else {
             super.onBackPressed()
         }
@@ -211,13 +217,19 @@ class SimpleFilesActivity : AppCompatActivity() {
                     data.flags!! and (Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
                 )
             }
+
+            //content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fdata
+
+            mCurrentFile = File(fileUriUtils.treeToPath2(uri.toString()))
+
+
+            Log.e(TAG, "onActivityResult : $uri")
+            Log.e(TAG, "mCurrentFile : ${mCurrentFile.path}")
+
             var templeDocumentFile = DocumentFile.fromTreeUri(
                 this, uri!!
             )
-            Log.e(
-                TAG, "documentFile.uri2 " + templeDocumentFile?.uri
-            )
-            Log.e(TAG, "documentFile.size" + templeDocumentFile?.listFiles()?.size)
+
             fetchAndroidDataFiles(templeDocumentFile!!)
 
         }

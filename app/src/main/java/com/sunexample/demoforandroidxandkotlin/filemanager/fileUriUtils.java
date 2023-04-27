@@ -28,6 +28,21 @@ public class fileUriUtils {
     }
 
 
+    public static String treeToPath2(String path) {
+        String path2;
+        if (path.contains("content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fdata")) {
+            path2 = path.replace("content://com.android.externalstorage.documents/tree/primary%3A", root);
+            path2 = path2.replace("%2F", "/");
+        } else {
+//            path2 = root + textUtils.getSubString(path + "测试", "document/primary%3A", "测试").replace("%2F", "/");
+            path2 = "path2";
+        }
+        return path2;
+    }
+
+
+
+
     //判断是否已经获取了Data权限，改改逻辑就能判断其他目录，懂得都懂
     //"content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fdata"
     //content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fdata/document/primary%3AAndroid%2Fdata
