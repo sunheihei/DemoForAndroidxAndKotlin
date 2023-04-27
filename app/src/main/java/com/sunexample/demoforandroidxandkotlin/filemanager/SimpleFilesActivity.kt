@@ -51,20 +51,20 @@ class SimpleFilesActivity : AppCompatActivity() {
     private lateinit var mCurrentFile: File
 
 
-    private val storagePermissionResultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult(),
-        ActivityResultCallback<ActivityResult?> {
-            Log.e(TAG, "RESULT_BACK")
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                if (Environment.isExternalStorageManager()) {
+    private val storagePermissionResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult(),
+            ActivityResultCallback<ActivityResult?> {
+                Log.e(TAG, "RESULT_BACK")
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    if (Environment.isExternalStorageManager()) {
 //                    initView(true)
-                    Log.e(TAG, "permission_grant")
-                    // Permission granted. Now resume your workflow.
-                } else {
+                        Log.e(TAG, "permission_grant")
+                        // Permission granted. Now resume your workflow.
+                    } else {
 //                    initView(false)
+                    }
                 }
-            }
-        })
+            })
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -132,14 +132,21 @@ class SimpleFilesActivity : AppCompatActivity() {
     private fun fetchAndroidDataFiles(documentFile: DocumentFile) {
 
         val flow = flow<MutableList<File>> {
+
             var fileData: MutableList<File> = mutableListOf()
+
             for (file in documentFile.listFiles()) {
-                if (file.isDirectory) {
-                    fileData.add(File(fileUriUtils.treeToPath(file.uri.toString())))
-                } else {
-                    //读取数据写成File
-                    fileData.add(documentFileToFile(file))
-                }
+
+                fileData.add(File(fileUriUtils.treeToPath(file.uri.toString())))
+
+//                if (file.isDirectory) {
+//                    fileData.add(File(fileUriUtils.treeToPath(file.uri.toString())))
+//                } else {
+//                    //读取数据写成File
+//                    if (file.canRead()) {
+//                        fileData.add(documentFileToFile(file))
+//                    }
+//                }
             }
             emit(fileData)
         }.flowOn(Dispatchers.IO)
