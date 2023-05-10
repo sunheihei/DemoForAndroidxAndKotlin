@@ -25,11 +25,11 @@
         <activity
             android:name=".filemanager.SimpleFilesActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".flow.FlowActivity"
@@ -52,20 +52,18 @@
         <activity android:name=".fragment.FragmentActivity" />
         <activity android:name=".customView.Scroll.ScrollDemoActivity" />
         <activity android:name=".readAndWrite.ReadAndWriteActivity" />
-        <activity
-            android:name=".customView.DemoView.CusDemoActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".customView.DemoView.CusDemoActivity" />
         <activity android:name=".customView.CustomViewActivity" />
         <activity android:name=".dialog.DialogDemoActivity" />
         <activity android:name=".styleAndTheme.StyleAndThemeActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
