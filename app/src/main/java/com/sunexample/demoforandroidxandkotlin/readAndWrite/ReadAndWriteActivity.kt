@@ -42,16 +42,16 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
 
 
         PermissionX.init(this).permissions(
-                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_MEDIA_LOCATION
-            ).request { allGranted, grantedList, deniedList ->
-                if (allGranted) {
-                    Toast.makeText(this, "All permissions are granted", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(
-                        this, "These permissions are denied: $deniedList", Toast.LENGTH_LONG
-                    ).show()
-                }
+            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_MEDIA_LOCATION
+        ).request { allGranted, grantedList, deniedList ->
+            if (allGranted) {
+                Toast.makeText(this, "All permissions are granted", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(
+                    this, "These permissions are denied: $deniedList", Toast.LENGTH_LONG
+                ).show()
             }
+        }
 
         val volumeNames: Set<String> =
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
