@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sunexample.demoforandroidxandkotlin">
 
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:name=".AppContext"
@@ -19,32 +23,39 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Leonids.LeonidsActivity"
+            android:name=".filemanager.SimpleFilesActivity"
+            android:exported="true">
+<!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".flow.FlowActivity"
             android:exported="false" />
         <activity
-            android:name=".TypeEvaluatorDemo.TypeEvaluatorActivity"
+            android:name=".typeEvaluatorDemo.TypeEvaluatorActivity"
             android:exported="false" />
         <activity
-            android:name=".LottieAnimDemo.LottieDemoActivity"
+            android:name=".lottieAnimDemo.LottieDemoActivity"
             android:exported="true" />
         <activity
-            android:name=".RecycleView.ComplexRecycleViewActivity"
+            android:name=".recycleView.ComplexRecycleViewActivity"
             android:exported="false" />
         <activity
-            android:name=".GestureDemo.SimpleGestureActivity"
+            android:name=".gestureDemo.SimpleGestureActivity"
             android:exported="true" />
         <activity android:name=".litepal.LitepalDemoActivity" />
-        <activity android:name=".Thread.ThreadActivity" />
-        <activity android:name=".Rxjava.RxjavaActivity" />
-        <activity android:name=".Fragment.FragmentActivity" />
-        <activity android:name=".CustomView.Scroll.ScrollDemoActivity" />
-        <activity android:name=".ReadAndWrite.ReadAndWriteActivity" />
-        <activity
-            android:name=".CustomView.DemoView.CusDemoActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".CustomView.CustomViewActivity" />
-        <activity android:name=".Dialog.DialogDemoActivity" />
-        <activity android:name=".StyleAndTheme.StyleAndThemeActivity" />
+        <activity android:name=".thread.ThreadActivity" />
+        <activity android:name=".rxjava.RxjavaActivity" />
+        <activity android:name=".fragment.FragmentActivity" />
+        <activity android:name=".customView.Scroll.ScrollDemoActivity" />
+        <activity android:name=".readAndWrite.ReadAndWriteActivity" />
+        <activity android:name=".customView.DemoView.CusDemoActivity" />
+        <activity android:name=".customView.CustomViewActivity" />
+        <activity android:name=".dialog.DialogDemoActivity" />
+        <activity android:name=".styleAndTheme.StyleAndThemeActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

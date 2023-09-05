@@ -18,7 +18,7 @@
 
     </style>
 
-    <style name="TextViewStyle" parent="">
+    <style name="TextViewStyle">
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle2
         </item>
         <item name="android:textColor">@color/blue500</item>

@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".Fragment.FragmentActivity">
+    tools:context=".fragment.FragmentActivity">
 
     <fragment
         android:id="@+id/left_fragment"
-        android:name="com.sunexample.demoforandroidxandkotlin.Fragment.LeftFragment"
+        android:name="com.sunexample.demoforandroidxandkotlin.fragment.LeftFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />

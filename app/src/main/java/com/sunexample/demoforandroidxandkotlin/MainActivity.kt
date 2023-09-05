@@ -3,19 +3,18 @@ package com.sunexample.demoforandroidxandkotlin
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.sunexample.demoforandroidxandkotlin.CustomView.CustomViewActivity
 import com.sunexample.demoforandroidxandkotlin.Dialog.DialogDemoActivity
 import com.sunexample.demoforandroidxandkotlin.Fragment.FragmentActivity
 import com.sunexample.demoforandroidxandkotlin.GestureDemo.SimpleGestureActivity
-import com.sunexample.demoforandroidxandkotlin.Leonids.LeonidsActivity
 import com.sunexample.demoforandroidxandkotlin.ReadAndWrite.ReadAndWriteActivity
-import com.sunexample.demoforandroidxandkotlin.RecycleView.ComplexRecycleViewActivity
 import com.sunexample.demoforandroidxandkotlin.Rxjava.RxjavaActivity
 import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
 import com.sunexample.demoforandroidxandkotlin.TypeEvaluatorDemo.TypeEvaluatorActivity
 import com.sunexample.demoforandroidxandkotlin.databinding.ActivityMainBinding
+import com.sunexample.demoforandroidxandkotlin.flow.FlowActivity
 import com.sunexample.demoforandroidxandkotlin.litepal.LitepalDemoActivity
+import com.sunexample.demoforandroidxandkotlin.recycleView.ComplexRecycleViewActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -59,10 +58,8 @@ class MainActivity : AppCompatActivity() {
         binding.typeevaluator.setOnClickListener {
             startActivity(Intent(this, TypeEvaluatorActivity::class.java))
         }
-        binding.leonids.setOnClickListener {
-            startActivity(Intent(this, LeonidsActivity::class.java))
+        binding.flow.setOnClickListener {
+            startActivity(Intent(this, FlowActivity::class.java))
         }
-
-        //github' test
     }
 }

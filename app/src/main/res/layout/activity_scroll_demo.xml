@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustomView.Scroll.ScrollDemoActivity">
+    tools:context=".customView.Scroll.ScrollDemoActivity">
 
 
-    <com.sunexample.demoforandroidxandkotlin.CustomView.Scroll.ScrollViewDemo
+    <com.sunexample.demoforandroidxandkotlin.customView.Scroll.ScrollViewDemo
         android:id="@+id/srcollview"
         android:layout_width="100dp"
         android:layout_height="100dp"
