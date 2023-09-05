@@ -3,18 +3,19 @@ package com.sunexample.demoforandroidxandkotlin
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.sunexample.demoforandroidxandkotlin.CustomView.CustomViewActivity
-import com.sunexample.demoforandroidxandkotlin.Dialog.DialogDemoActivity
-import com.sunexample.demoforandroidxandkotlin.Fragment.FragmentActivity
-import com.sunexample.demoforandroidxandkotlin.GestureDemo.SimpleGestureActivity
-import com.sunexample.demoforandroidxandkotlin.ReadAndWrite.ReadAndWriteActivity
-import com.sunexample.demoforandroidxandkotlin.Rxjava.RxjavaActivity
-import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
-import com.sunexample.demoforandroidxandkotlin.TypeEvaluatorDemo.TypeEvaluatorActivity
+import com.sunexample.demoforandroidxandkotlin.customView.CustomViewActivity
+
 import com.sunexample.demoforandroidxandkotlin.databinding.ActivityMainBinding
+import com.sunexample.demoforandroidxandkotlin.dialog.DialogDemoActivity
 import com.sunexample.demoforandroidxandkotlin.flow.FlowActivity
+import com.sunexample.demoforandroidxandkotlin.fragment.FragmentActivity
+import com.sunexample.demoforandroidxandkotlin.gestureDemo.SimpleGestureActivity
 import com.sunexample.demoforandroidxandkotlin.litepal.LitepalDemoActivity
+import com.sunexample.demoforandroidxandkotlin.readAndWrite.ReadAndWriteActivity
 import com.sunexample.demoforandroidxandkotlin.recycleView.ComplexRecycleViewActivity
+import com.sunexample.demoforandroidxandkotlin.rxjava.RxjavaActivity
+import com.sunexample.demoforandroidxandkotlin.styleAndTheme.StyleAndThemeActivity
+import com.sunexample.demoforandroidxandkotlin.typeEvaluatorDemo.TypeEvaluatorActivity
 
 
 class MainActivity : AppCompatActivity() {

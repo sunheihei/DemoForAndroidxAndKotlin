@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sunexample.demoforandroidxandkotlin.R
-import com.sunexample.demoforandroidxandkotlin.RecycleView.bean.AdBean
-import com.sunexample.demoforandroidxandkotlin.RecycleView.bean.Content
 import com.sunexample.demoforandroidxandkotlin.SuperSp
+import com.sunexample.demoforandroidxandkotlin.recycleView.bean.Content
 
 class ChangerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

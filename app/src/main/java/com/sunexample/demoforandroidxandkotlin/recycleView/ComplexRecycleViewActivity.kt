@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.sunexample.demoforandroidxandkotlin.RecycleView.ChangerAdapter
-import com.sunexample.demoforandroidxandkotlin.RecycleView.bean.Content
 import com.sunexample.demoforandroidxandkotlin.databinding.ActivityRecycleViewBinding
+import com.sunexample.demoforandroidxandkotlin.recycleView.bean.Content
 
 class ComplexRecycleViewActivity : AppCompatActivity() {
 
