@@ -29,19 +29,22 @@ class ComplexRecycleViewActivity : AppCompatActivity() {
     }
 
     private fun initdata() {
+//        for (index in 0 until 10) {
+//            if (index % 2 == 1) {
+//                ListData.add(AdBean("ad:$index"))
+//            } else {
+//                ListData.add(Content("content:$index"))
+//            }
+//        }
         for (index in 0 until 10) {
-            if (index % 2 == 1) {
-                ListData.add(AdBean("ad:$index"))
-            } else {
-                ListData.add(Content("content:$index"))
-            }
+            ListData.add(Content("content:$index"))
         }
         Log.d(TAG, ListData.toString())
     }
 
 
     private fun initRecycleView() {
-        val adapter = ContentAdapter()
+        val adapter = ChangerAdapter()
         binding.complexRecycle.adapter = adapter
         adapter.setData(this, ListData)
     }

@@ -3,12 +3,14 @@ package com.sunexample.demoforandroidxandkotlin
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.sunexample.demoforandroidxandkotlin.CustomView.CustomViewActivity
 import com.sunexample.demoforandroidxandkotlin.Dialog.DialogDemoActivity
 import com.sunexample.demoforandroidxandkotlin.Fragment.FragmentActivity
 import com.sunexample.demoforandroidxandkotlin.GestureDemo.SimpleGestureActivity
 import com.sunexample.demoforandroidxandkotlin.Leonids.LeonidsActivity
 import com.sunexample.demoforandroidxandkotlin.ReadAndWrite.ReadAndWriteActivity
+import com.sunexample.demoforandroidxandkotlin.RecycleView.ComplexRecycleViewActivity
 import com.sunexample.demoforandroidxandkotlin.Rxjava.RxjavaActivity
 import com.sunexample.demoforandroidxandkotlin.StyleAndTheme.StyleAndThemeActivity
 import com.sunexample.demoforandroidxandkotlin.TypeEvaluatorDemo.TypeEvaluatorActivity
@@ -29,6 +31,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.styleAndTheme.setOnClickListener {
             startActivity(Intent(this, StyleAndThemeActivity::class.java))
+        }
+        binding.recycleview.setOnClickListener {
+            startActivity(Intent(this, ComplexRecycleViewActivity::class.java))
         }
         binding.dialogdemo.setOnClickListener {
             startActivity(Intent(this, DialogDemoActivity::class.java))
