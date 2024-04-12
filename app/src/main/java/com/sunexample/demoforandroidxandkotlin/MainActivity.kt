@@ -3,6 +3,7 @@ package com.sunexample.demoforandroidxandkotlin
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sunexample.demoforandroidxandkotlin.bitmap.BitmapDemoActivity
 import com.sunexample.demoforandroidxandkotlin.customView.CustomViewActivity
 import com.sunexample.demoforandroidxandkotlin.dialog.DialogDemoActivity
 import com.sunexample.demoforandroidxandkotlin.fragment.FragmentActivity
@@ -57,5 +58,9 @@ class MainActivity : AppCompatActivity() {
         binding.flow.setOnClickListener {
             startActivity(Intent(this, FlowActivity::class.java))
         }
+        binding.bitmap.setOnClickListener {
+            startActivity(Intent(this, BitmapDemoActivity::class.java))
+        }
+
     }
 }

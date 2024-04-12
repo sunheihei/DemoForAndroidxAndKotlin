@@ -316,7 +316,7 @@ class ReadAndWriteActivity : AppCompatActivity(), View.OnClickListener {
         } else {
             values.put(
                 MediaStore.Images.Media.DATA,
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC)
                     .getPath()
             );
         }

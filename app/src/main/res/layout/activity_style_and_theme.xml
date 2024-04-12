@@ -24,4 +24,10 @@
         android:text="BUttonTest"
         android:textColor="@color/jazz_b2" />
 
+    <com.sunexample.demoforandroidxandkotlin.view.Typewriter
+        android:id="@+id/textshower"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 </LinearLayout>
