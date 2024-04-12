@@ -10,8 +10,6 @@ import com.sunexample.demoforandroidxandkotlin.databinding.ActivityMainBinding
 import com.sunexample.demoforandroidxandkotlin.dialog.DialogDemoActivity
 import com.sunexample.demoforandroidxandkotlin.flow.FlowActivity
 import com.sunexample.demoforandroidxandkotlin.fragment.FragmentActivity
-import com.sunexample.demoforandroidxandkotlin.gestureDemo.SimpleGestureActivity
-import com.sunexample.demoforandroidxandkotlin.litepal.LitepalDemoActivity
 import com.sunexample.demoforandroidxandkotlin.readAndWrite.ReadAndWriteActivity
 import com.sunexample.demoforandroidxandkotlin.recycleView.ComplexRecycleViewActivity
 import com.sunexample.demoforandroidxandkotlin.rxjava.RxjavaActivity
@@ -25,10 +23,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(getLayoutInflater())
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-//        var user = User("sun", 20)
 
         binding.styleAndTheme.setOnClickListener {
             startActivity(Intent(this, StyleAndThemeActivity::class.java))
@@ -51,12 +47,6 @@ class MainActivity : AppCompatActivity() {
         binding.rxjava.setOnClickListener {
             startActivity(Intent(this, RxjavaActivity::class.java))
         }
-        binding.litepal.setOnClickListener {
-            startActivity(Intent(this, LitepalDemoActivity::class.java))
-        }
-        binding.gesture.setOnClickListener {
-            startActivity(Intent(this, SimpleGestureActivity::class.java))
-        }
         binding.typeevaluator.setOnClickListener {
             startActivity(Intent(this, TypeEvaluatorActivity::class.java))
         }
@@ -66,6 +56,8 @@ class MainActivity : AppCompatActivity() {
         binding.bitmap.setOnClickListener {
             startActivity(Intent(this, BitmapDemoActivity::class.java))
         }
-
+        binding.activityAnim.setOnClickListener {
+//            startActivity(Intent(this, A::class.java))
+        }
     }
 }

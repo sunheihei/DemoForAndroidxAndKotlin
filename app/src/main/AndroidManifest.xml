@@ -21,6 +21,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activityTransitionAnimation.TransitionTwoMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activityTransitionAnimation.TransitionOneActivity"
+            android:exported="false" />
+        <activity
             android:name=".bitmap.BitmapDemoActivity"
             android:exported="false" />
         <activity
@@ -46,10 +52,6 @@
         <activity
             android:name=".recycleView.ComplexRecycleViewActivity"
             android:exported="false" />
-        <activity
-            android:name=".gestureDemo.SimpleGestureActivity"
-            android:exported="true" />
-        <activity android:name=".litepal.LitepalDemoActivity" />
         <activity android:name=".thread.ThreadActivity" />
         <activity android:name=".rxjava.RxjavaActivity" />
         <activity android:name=".fragment.FragmentActivity" />

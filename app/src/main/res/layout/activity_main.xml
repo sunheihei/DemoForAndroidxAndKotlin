@@ -56,18 +56,6 @@
             android:text="rxjava" />
 
         <Button
-            android:id="@+id/litepal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="litepal" />
-
-        <Button
-            android:id="@+id/gesture"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="gesture" />
-
-        <Button
             android:id="@+id/typeevaluator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,6 +72,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="bitmap" />
+
+        <Button
+            android:id="@+id/activity_anim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="activity Transition Animation" />
+
     </LinearLayout>
 
 
