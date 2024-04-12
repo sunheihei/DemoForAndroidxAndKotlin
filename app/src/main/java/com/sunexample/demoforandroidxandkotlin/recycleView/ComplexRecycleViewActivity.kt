@@ -3,9 +3,9 @@ package com.sunexample.demoforandroidxandkotlin.recycleView
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.sunexample.demoforandroidxandkotlin.recycleView.bean.AdBean
-import com.sunexample.demoforandroidxandkotlin.recycleView.bean.Content
+import com.sunexample.demoforandroidxandkotlin.RecycleView.ChangerAdapter
 import com.sunexample.demoforandroidxandkotlin.databinding.ActivityRecycleViewBinding
+import com.sunexample.demoforandroidxandkotlin.recycleView.bean.Content
 
 class ComplexRecycleViewActivity : AppCompatActivity() {
 
@@ -28,19 +28,22 @@ class ComplexRecycleViewActivity : AppCompatActivity() {
     }
 
     private fun initdata() {
+//        for (index in 0 until 10) {
+//            if (index % 2 == 1) {
+//                ListData.add(AdBean("ad:$index"))
+//            } else {
+//                ListData.add(Content("content:$index"))
+//            }
+//        }
         for (index in 0 until 10) {
-            if (index % 2 == 1) {
-                ListData.add(AdBean("ad:$index"))
-            } else {
-                ListData.add(Content("content:$index"))
-            }
+            ListData.add(Content("content:$index"))
         }
         Log.d(TAG, ListData.toString())
     }
 
 
     private fun initRecycleView() {
-        val adapter = ContentAdapter()
+        val adapter = ChangerAdapter()
         binding.complexRecycle.adapter = adapter
         adapter.setData(this, ListData)
     }

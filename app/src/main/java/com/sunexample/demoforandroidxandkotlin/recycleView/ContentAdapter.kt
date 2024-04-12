@@ -36,11 +36,11 @@ class ContentAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         if (viewType == TYPE_CONTENT) {
             view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_rec_view_layout, parent, false)
+                .inflate(R.layout.lin_item_rec_view_layout, parent, false)
             return ContentHolder(view)
         } else {
             view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_rec_view_layout, parent, false)
+                .inflate(R.layout.lin_item_rec_view_layout, parent, false)
             return ADHolder(view)
         }
     }
